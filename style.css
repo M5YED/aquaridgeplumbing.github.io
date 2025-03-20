@@ -37,7 +37,7 @@
     body {
         font-family: 'TNR', sans-serif;
         padding-top: 85px; /* Matches header height */
-        background-color: #EBFAF2;
+        background-color: #E5FFFD;
     }
 
     /* Header Styling */
@@ -46,7 +46,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #1E7548; 
+        background-color: #009688; 
         padding: 15px 40px;
         z-index: 1000;
         opacity: 1 !important;
@@ -84,7 +84,7 @@
     }
         
     h1 {
-        color: #EBFAF2;
+        color: #E5FFFD;
         font-family: 'HORIZON', sans-serif; 
         font-size: 36px;
         margin: 0;
@@ -116,7 +116,7 @@
     nav button {
         background-color: transparent;
         border: 2px solid #EFFE8A;
-        color: #EBFAF2;
+        color: #E5FFFD;
         padding: 10px 20px;
         font-size: 16px;
         font-family: 'GP-SB', sans-serif;
@@ -133,7 +133,7 @@
         padding: 10px 20px;
         font-size: 16px;
         background-color: #ff7f00;
-        color: #EBFAF2;
+        color: #E5FFFD;
         border: none;
         cursor: pointer;
         margin-top: 20px;
@@ -180,7 +180,7 @@
     /* Gold button styling */
     .gold-menu-button {
         background-color: #0A2919;
-        color: #1E7548;
+        color: #009688;
         font-size: 24px;
         border: 2px solid #000000;
         border-radius: 5px;
@@ -218,7 +218,7 @@
     /* Links inside the overlay */
     .menu-overlay a {
         text-decoration: none;
-        color: #1E7548;
+        color: #009688;
         font-size: 18px;
         font-family: Arial, sans-serif;
         transition: color 0.2s ease;
@@ -273,7 +273,7 @@
         transition: max-height 0.4s ease-out, padding 0.4s ease-out;
         padding: 0 15px;
         font-size: 20px;
-        color: #EBFAF2;
+        color: #E5FFFD;
     }
 
     .faq-item.active .faq-answer {
@@ -345,6 +345,14 @@
         margin-top: 15px;
         z-index: 1;
     }
+
+    .pricing_image {
+        width: 30vw; 
+        height: 30vw; 
+        max-width: 300px; 
+        border: none;
+        border-radius: 20px;
+    }
     
     .container {
         display: flex;
@@ -366,12 +374,12 @@
 
     .text-container h3 {
         font-size: 30px;
-        color: #1F7A4B;
+        color: #00CCB9;
     }
 
     .text-container h2 {
         font-size: 20px;
-        color: #1F7A4B;
+        color: #00CCB9;
     }
     
     .Quick-Words {
@@ -555,7 +563,7 @@
     }
 
     .toggle-input:checked + .toggle-slider {
-        background: #1F7A4B;
+        background: #00CCB9;
     }
 
     .toggle-input:checked + .toggle-slider:before {
