@@ -502,6 +502,50 @@ async function submitemail(email) {
     </div>
     <img class="spanner-image" src="SATA_Tools_Spanner_Transparent.png" style="width: 30vw; height: 30vw; max-width: 300px; object-fit: contain;">
 </div>
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default jump
+
+        let targetId = this.getAttribute("href").substring(1);
+        let targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            smoothScroll(targetElement, 1000); // Adjust duration in ms (1000ms = 1 sec)
+        }
+    });
+});
+
+function smoothScroll(target, duration) {
+    let startPosition = window.scrollY;
+    let targetPosition = target.getBoundingClientRect().top + window.scrollY;
+    let distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        let timeElapsed = currentTime - startTime;
+        let run = ease(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    function ease(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t + b;
+        t--;
+        return (-c / 2) * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
+}
+</script>
+<style>
+html {
+    scroll-padding-top: 80px; /* Adjust if needed */
+    scroll-behavior: smooth;
+}
+</style>
 <div style="padding: 30px; text-align: center;">
     <span style="color: #0A2919; font-family: 'GP-SB', sans-serif; font-size: 36px; margin: 0; flex-grow: 1;"><span>"</span><span style="color: #00CCB9;">Fresh Off The Bat</span><span>"</span></span>
     <h3>Our experts have all recently been through the necessary training needed to fix any tap. That means, when you choose us to fix your taps, you're choosing professionals who have all of the current training and knowledge to fix any tap on the market. So, whether you have an old fashioned tap, or a fancy modern one, rest assured that our plumbers will do just the right things to help you get back on track!</h3>
@@ -553,7 +597,7 @@ async function submitemail(email) {
     <br><br>
     From fixing dripping taps at a service price starting at £15, to new tap installations starting at £20, we've got a service for every budget. Instead of potentially breaking your new tap, why not let our professional plumbers take on the job instead? That way, you'll have a faultless tap installed for your house while also saving yourself from all the hassle!
     <br><br>
-    So, what are you waiting for? <a href="https://www.aquaridgeplumbing.com/#section_1" style="color: #A52A2A;">Leave us your email,</a> or <a href="https://www.aquaridgeplumbing.com/#section_1" style="color: #A52A2A;"><!-- FILL IN LATER-->drop us a message</a> and we'll get back to you "ASAP"!</h3>
+    So, what are you waiting for? <a href="#section_1" id="scrollToSection" style="color: #A52A2A;">Leave us your email,</a> or <a href="#section_1" id="scrollToSection" style="color: #A52A2A;"><!-- FILL IN LATER-->drop us a message</a> and we'll get back to you "ASAP"!</h3>
 </div>
 <div style="background-color: #A52A2A; padding: 10px;">
 <div class="faq-container">
@@ -578,7 +622,7 @@ async function submitemail(email) {
         <div class="faq-item">
             <button class="faq-question">How can I book an appointment?</button>
             <div class="faq-answer">
-                You can book an appointment by <a href="https://www.aquaridgeplumbing.com/#section_1" style="color: #009688;"><!-- FILL IN LATER-->submitting your email</a> on this website or sending us a <a href="https://www.aquaridgeplumbing.com/#section_1" style="color: #009688;"><!-- FILL IN LATER-->message through Whatsapp</a>.
+                You can book an appointment by <a href="#section_1" id="scrollToSection" style="color: #009688;"><!-- FILL IN LATER-->submitting your email</a> on this website or sending us a <a href="#section_1" id="scrollToSection" style="color: #009688;"><!-- FILL IN LATER-->message through Whatsapp</a>.
             </div>
         </div>
 
@@ -623,7 +667,7 @@ document.querySelectorAll('.faq-question').forEach(button => {
 <div style="display: flex; justify-content: center;">
     <div style="padding: 40px;">
         <h2 style="color: #0A2919;">Policy</h2>
-        <h3><a href="https//:www.aquaridgeplumbing.com/policy/privacy/" style="color: #E5FFFD; font-size: 20px;">Privacy Policy</a></h3>
+        <h3><a href="policy/privacy/" style="color: #E5FFFD; font-size: 20px;">Privacy Policy</a></h3>
         <h3><a href="https//:www.aquaridgeplumbing.com/policy/general/#Money-Back_Guarantee" style="color: #E5FFFD; font-size: 20px;">Money-Back Guarantee</a></h3><!-- FILL IN LATER-->
         <h3><a href="https//:www.aquaridgeplumbing.com/policy/general/" style="color: #E5FFFD; font-size: 20px;">General Policy</a></h3>
     </div>
