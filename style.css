@@ -760,4 +760,10 @@
         font-size: 18px;
     }
 }
+
+@media (max-width: 400px) {
+    .text-container h2{
+        font-size: 10px;
+    }
+}
 </style>
