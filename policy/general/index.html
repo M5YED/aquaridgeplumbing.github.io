@@ -87,8 +87,254 @@ function scrollToSection(sectionId) {
     }
 }
 </script>
+<script>
+// Function to send email logic
+async function submitemail(email) {
+    const EMAIL_SUBMISSION_API_KEY = "patma2GleJcx1ihQB.19176128fba7a33a7a701f42ed06c284cbce979bf9dfe339027e52b1b1df8d7f";
+    const EMAIL_SUBMISSION_BASE_ID = "appRVFcrr9bgxraGU";
+    const EMAIL_SUBMISSION_TABLE_NAME = "Policy%20Updates";
+
+    const url = `https://api.airtable.com/v0/${EMAIL_SUBMISSION_BASE_ID}/${EMAIL_SUBMISSION_TABLE_NAME}`;
+    const data = {
+      fields: {
+        Email: email,
+      },
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${EMAIL_SUBMISSION_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Email Submitted Successfully!");
+        return true;
+      } else {
+        console.error("Error submitting email:", response.status, await response.text());
+        return false;
+      }
+    } catch (error) {
+      console.error("Failed to submit email:", error);
+      return false;
+    }
+  }
+
+// Main logic
+  document.addEventListener("DOMContentLoaded", async () => {
+    const emailInput = document.getElementById("email-input");
+    const submitButton = document.getElementById("submit-button");
+    const successMessage = document.getElementById("success-message");
+    const errorMessage = document.getElementById("error-message");
+
+    // Function to handle email submission
+    const handleEmailSubmission = async () => {
+      const email = emailInput.value.trim();
+
+      // Validate email
+      if (!email || !email.includes("@")) {
+        errorMessage.textContent = "Please enter a valid email address.";
+        errorMessage.style.display = "block";
+        successMessage.style.display = "none";
+        return;
+      }
+
+      successMessage.style.display = "none";
+      errorMessage.style.display = "none";
+
+      submitButton.disabled = true;
+
+      const EmailSubmitted = await submitemail(email);
+
+      if (EmailSubmitted) {
+        successMessage.textContent = "Thank you. We'll get in touch soon!";
+        successMessage.style.display = "block"; // Show the existing success message
+        emailInput.value = ""; // Clear the input field
+      } else {
+        errorMessage.textContent = "Failed to send email to Database. Please try again later or choose a different method to get in touch.";
+        errorMessage.style.display = "block";
+      }
+      submitButton.disabled = false; // Re-enable the button
+    };
+
+    // Subscription event listener for button click
+    submitButton.addEventListener("click", handleEmailSubmission);
+
+    // Event listener for "Enter" key press
+    emailInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        handleEmailSubmission(); // Call the same logic as the button click
+      }
+    });
+  });
+</script>
 <script src="script.js" defer></script>
-<h2>Sorry, we're still building this page. Please come back later.</h2>
+<div style="padding: 20px;">
+<center><h2>General Policy</h2></center>
+<center><h3>
+These general policies cover the terms and conditions that are legally binding for Aquaridge Plumbing's audience, where “audience” refers to Aquaridge Plumbing's employees and clients. Every employee and client must confirm that they have read and agreed to these terms before the commencement of any project conducted by Aquaridge Plumbing. A confirmation may be in the form of a formal handwritten signature or an informal agreement, such as a text message with the utterance "Yes". However, these terms are only legally binding if the confirmation is explicitly related to these terms, known as the "General Policy". Confirmation of other terms does not render the policies below valid or legally binding.
+</h3></center>
+</div>
+<div style="padding: 20px;">
+
+  <span style="font-size: 25px; font-weight: bold;">Section 1</span>
+  <span style="font-size: 20px;">: Project Initialisation (1.1)
+    <br><br>
+    Aquaridge Plumbing's employees, hereinafter referred to as “APE”, will be in contact with the client, hereinafter referred to as “APC”, to understand the project’s requirements, scope, and objectives. This initial contact includes:
+    <ol>
+      <li><strong>Initial Consultation:</strong> APE will conduct an assessment either via phone, message, or on-site visit, as deemed necessary.</li>
+      <li><strong>Requirement Gathering:</strong> Detailed documentation of the client's needs, property conditions, and any special considerations.(This policy is for larger jobs, hereby referred to as "FLJ". FLJ policy's are adhered to within projects requiring more than 3 days, excluding projects that were allocated any additional days on top of their initial project timeline.)</li>
+      <li><strong>Preliminary Quotation:</strong> A rough estimate and discussion of potential solutions will be provided. This is subject to further review upon detailed inspection.</li>
+    </ol>
+    All details discussed during this phase will be documented and confirmed by both APE and APC prior to project commencement.
+  </span>
+
+  <br><br>
+
+  <span style="font-size: 25px; font-weight: bold;">Section 2(FLJ)</span>
+  <span style="font-size: 20px;">: Scope of Work & Service Deliverables (2.1)
+    <br><br>
+    Aquaridge Plumbing will define the Scope of Work (SOW) for every project based on the initial consultation. The SOW will include:
+    <ol>
+      <li><strong>Detailed Description:</strong> A comprehensive explanation of the work to be undertaken, including any limitations or exclusions.</li>
+      <li><strong>Materials Specification:</strong> Specifications of the materials to be used, including brands and models where applicable.</li>
+      <li><strong>Timeline:</strong> An estimated project timeline with start and completion dates, subject to change based on unforeseen circumstances.</li>
+      <li><strong>Client Responsibilities:</strong> Any requirements or preparations needed from the APC to ensure a smooth project execution.</li>
+    </ol>
+    Both APE and APC must review, amend (if necessary), and formally approve the SOW before work commences.
+  </span>
+
+  <br><br>
+
+  <span style="font-size: 25px; font-weight: bold;">Section 3</span> 
+  <span style="font-size: 20px;">: Payment Terms and Billing (3.1)
+    <br><br>
+    All financial transactions will be conducted in accordance with the following guidelines:
+    <ol>
+    <li><strong>Material, Fittings, and Component Payments:</strong> APC shall pay for all fittings, materials, and components used or intended for use in the project <strong>prior</strong> to their installation. Detailed invoices listing these items will be provided for client approval and payment before proceeding with installation.</li> <li><strong>Service Charge Payment:</strong> The service charge for labor and related services will be invoiced and is due upon the project's completion and successful final inspection by APC.</li> <li><strong>Retention of Materials:</strong> In the event that APC elects not to pay the service charge as stipulated, Aquaridge Plumbing reserves the right to retain all materials, fittings, and components used or allocated for the project as a form of compensation.</li> </ol> All payment methods accepted by Aquaridge Plumbing will be detailed in the client contract. 
+  </span>
+
+  <br><br>
+
+  <span style="font-size: 25px; font-weight: bold;">Section 4</span>
+  <span style="font-size: 20px;">: Safety, Compliance & Environmental Standards (4.1)
+    <br><br>
+    Aquaridge Plumbing is committed to upholding the highest standards of safety and compliance, which include:
+    <ol>
+      <li><strong>Regulatory Adherence:</strong> All projects will comply with local, state, and federal plumbing codes, as well as environmental regulations.</li>
+      <li><strong>Employee Safety:</strong> APE will be provided with proper training, personal protective equipment (PPE), and safety protocols to minimize risk during project execution.</li>
+      <li><strong>Site Safety:</strong> APC must ensure that the work site is accessible and free of hazards that could impede safe operations. Any risks identified will be addressed prior to work starting.</li>
+      <li><strong>Environmental Considerations:</strong> Efforts will be made to use eco-friendly materials and practices where possible. Disposal of waste and hazardous materials will follow approved environmental guidelines.</li>
+    </ol>
+  </span>
+
+  <br><br>
+
+  <span style="font-size: 25px; font-weight: bold;">Section 5</span>
+  <span style="font-size: 20px;">: Warranties, Guarantees & Post-Project Support (5.1)
+    <br><br>
+    Aquaridge Plumbing guarantees the quality of its workmanship and materials under the following conditions:
+    <ol>
+      <li><strong>Workmanship Warranty:</strong> A standard warranty period of 7 calendar days is provided, during which any defects due to workmanship will be remedied at no additional cost.</li>
+      <li><strong>Material Warranty:</strong> Where applicable, warranties provided by material manufacturers will be honored. Documentation of such warranties will be supplied to APC.</li>
+      <li id="Money-Back_Guarantee"><strong>Money-Back Guarantee:</strong> In cases where APE has damaged a component crucial to the project, APE will be liable to give a refund to APC or to replace the component with another replica or similar model. In cases where APE has damaged a component external to the project, where external refers to components that are not part of the project but are part of APC's property or assets, APE will issue a full refund, or will not collect payment, limited to the amount equal to the service charge. Guarantees or Warranties do not include damage to components that APE had planned to Scrap-For-Parts(SFP) or components that were intended to be removed from the property as waste.</li>
+      <li><strong>Post-Project Support:</strong> APC is entitled to a consultation period of 5 working days following project completion for addressing any minor adjustments or questions regarding the installation or repair work.</li>
+      <li><strong>Exclusions:</strong> Warranties and guarantees do not cover damages resulting from misuse, natural disasters, unauthorized modifications, or client defection, where client defection refers to defects caused by the client before, during or after the project completion.</li>
+    </ol>
+  </span>
+
+  <br><br>
+
+  <span style="font-size: 25px; font-weight: bold;">Section 6</span>
+  <span style="font-size: 20px;">: [This Policy Has Been Redacted]
+  </span>
+
+  <br><br>
+
+  <span style="font-size: 25px; font-weight: bold;">Section 7</span>
+  <span style="font-size: 20px;">: Confidentiality and Data Privacy (7.1)
+    <br><br>
+    Both parties acknowledge that sensitive information may be exchanged during the course of a project. Therefore:
+    <ol>
+      <li><strong>Confidential Information:</strong> All proprietary, financial, and personal information shared between APE and APC is considered confidential.</li>
+      <li><strong>Data Protection:</strong> Aquaridge Plumbing will take reasonable measures to protect any data received. APC is responsible for informing APE of any restrictions on the use or dissemination of their information.</li>
+      <li><strong>Non-Disclosure:</strong> Unauthorized disclosure of confidential information is strictly prohibited and may result in legal action.</li>
+    </ol>
+  </span>
+
+  <br><br>
+
+  <span style="font-size: 25px; font-weight: bold;">Section 8</span>
+  <span style="font-size: 20px;">: Dispute Resolution (8.1)
+    <br><br>
+    In the event of a disagreement or dispute:
+    <ol>
+      <li><strong>Negotiation:</strong> Both parties agree to first attempt to resolve the issue through direct negotiation and discussion.</li>
+      <li><strong>Mediation/Arbitration:</strong> If negotiation fails, the dispute may be submitted to a mutually agreed-upon mediator or arbitrator. The decision rendered shall be binding on both parties.</li>
+      <li><strong>Legal Recourse:</strong> As a last resort, disputes may be taken to court, subject to the jurisdiction specified in the contract.</li>
+    </ol>
+  </span>
+
+  <br><br>
+
+  <span style="font-size: 25px; font-weight: bold;">Section 9</span>
+  <span style="font-size: 20px;">: Amendments and Termination (9.1)
+    <br><br>
+    This policy may be amended under the following conditions:
+    <ol>
+      <li><strong>Policy Amendments:</strong> Any changes to these policies made by APE must be announced or communicated to present and previous APC's. Modifications to these policies must be dated at the bottom of the document and do not affect projects that were completed or started before the modification date.</li>
+      <li><strong>Termination by Client:</strong> APC may terminate the project if significant deviations from the agreed SOW occur, subject to payment for work already completed. In cases where the project was started, but not completed, the APC will pay 50% of the service charge, as well as payments for any unpaid materials that were intended for use in the project.</li>
+      <li><strong>Termination by Company:</strong> Aquaridge Plumbing reserves the right to suspend or terminate a project if APC fails to comply with the terms herein or if continued work poses a safety hazard.</li>
+      <li><strong>Notice Period:</strong> A notice period of 3 working days is required for any termination made by the client, and a  notice period of 1 working day is required for any termination made by the company, except in cases of breach or emergency.</li>
+    </ol>
+  </span>
+
+  <br><br>
+
+  <span style="font-size: 25px; font-weight: bold;">Section 10</span>
+  <span style="font-size: 20px;">: Emergency Procedures and Unforeseen Circumstances (10.1)
+    <br><br>
+    In cases where emergencies or unexpected events affect the project:
+    <ol>
+      <li><strong>Immediate Notification:</strong> APE shall immediately inform APC of any incident that could impact project safety, timeline, or quality.</li>
+      <li><strong>Contingency Plans:</strong> Pre-defined contingency measures will be implemented to manage emergencies, including resource re-allocation and schedule adjustments.</li>
+      <li><strong>Force Majeure:</strong> Aquaridge Plumbing is not liable for delays or non-performance resulting from circumstances beyond its control, such as natural disasters, labor strikes, or government actions.</li>
+    </ol>
+  </span>
+
+  <br><br>
+
+  <span style="font-size: 25px; font-weight: bold;">Section 11</span>
+  <span style="font-size: 20px;">: Acknowledgement and Agreement (11.1)
+    <br><br>
+    By confirming acceptance of these policies, both APE and APC acknowledge that they have read, understood, and agreed to the terms set forth in this General Policy document. This acknowledgement is required before any further engagement in project activities.
+    <ol>
+      <li><strong>Record Keeping:</strong> Both parties shall retain a copy of the signed or electronically confirmed policy for future reference.</li>
+      <li><strong>Policy Review:</strong> Aquaridge Plumbing reserves the right to review and update these policies at any time. APC and APE will be notified of any policy changes as mentioned in Section 9.1(Policy Amendments).</li>
+    </ol>
+  </span>
+</div>
+<div style="padding: 5px;">
+<center><p style="font-size: 20px;">End Of General Policy</p></center>
+</div>
+<div style="padding: 10px:">
+<center><h3>
+Changes made to these policies will be communicated via Email. All APC's(previous and present) will be notified, as well as 3rd party viewers. By submitting your email below, you agree to become a 3rd party viewer and agree to be notified of any changes to this document when modifications are made. To unsubscribe, contact the Aquaridge Plumbing support team and an APE will remove your email address from the Policy Update mailing list.</h3></center>
+<br><br>
+<div style="display: flex; padding: 10px; margin: 0; gap: 10px;">
+    <input type="email" id="email-input" placeholder="Enter your email" required />
+    <button id="submit-button">Submit Email</button>
+    <p id="success-message" style="color: #000000;">You are now a registered 3rd party viewer!</p>
+    <p id="error-message" class="error-message" style="color: #000000;">Please enter a valid email address.</p>
+</div>
+<br><br>
+<p style="text-align: right; padding: 5px;">Last Modified: 06:05PM Thursday 10th April 2025</p>
+</div>
 <script type="text/javascript">
   (function(d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
