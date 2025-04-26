@@ -604,6 +604,7 @@
 
     #email-input {
         width: calc(50% - 120px);
+        min-width: 150px;
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;
