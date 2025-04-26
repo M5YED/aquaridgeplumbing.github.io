@@ -1,2 +1,2 @@
-# rochdaleplumbers.github.io
-The repository for the Rochdale Plumbers website. Rochdale Plumbers and AssetFlow Automations are property of Mikaeel Syed.
+# AquaridgePlumbing.github.io
+The repository for the Aquaridge Plumbing website. Aquaridge Plumbing and AssetFlow Automations are property of Mikaeel Syed.
