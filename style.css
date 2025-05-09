@@ -153,17 +153,89 @@
         padding: 10px;
     }
 
+    .stars {
+        font-size: 20px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .stars span {
+        color: #054708; 
+        font-size: 25px;
+    }
+
+    .half-star {
+        position: relative;
+        color: #054708;
+        -webkit-text-stroke: 1px #054708; /* Green border */
+    }
+
+    .half-star:before {
+        content: '★';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        overflow: hidden;
+        color: #054708; /* Fill left half */
+    }
+
     #Testimonials {
         margin: 0 auto;
         display: flex;
         flex-direction: column;
         align-items: center;
-        max-width: 90vw; 
-        background-color: #A52A2A; 
-        border-radius: 15px; 
-        border: 5px solid #0A2919; 
+        max-width: 90vw;
+        background-color: #A52A2A;
+        border-radius: 15px;
+        border: 5px solid #0A2919;
         padding: 20px;
         text-align: center;
+    }
+
+    .review-scroll-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 100px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .review-scroll-container::-webkit-scrollbar {
+        display: none;
+    }
+    .review-scroll-container {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .review-card {
+        flex: 0 0 calc(33.33% - 13.33px); /* 3 cards per row with spacing */
+        height: 60vh;
+        text-align: center;
+        scroll-snap-align: start;
+    }
+
+    .review-card img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .review-card h3 {
+        font-size: 18px;
+        color: #E5FFFD;
+        margin-top: 10px;
+    }
+
+    .review-img {
+        width: 30vw;
+        height: auto;
+        max-height: 300px;
     }
 
     .image-container img {
@@ -735,8 +807,24 @@
         font-size: 25px;
     }
 
-}
+    .review-scroll-container {
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+        max-height: 180vh; /* 3 x 60vh */
+    }
 
+    .review-card {
+        flex: 0 0 60vh;
+        width: 100%;
+        scroll-snap-align: start;
+    }
+
+    .testimonials{
+      max-height: 80vh;
+    }
+}
         
 @media (max-width: 700px) {
     .text-container {
