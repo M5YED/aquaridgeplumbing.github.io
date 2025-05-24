@@ -769,14 +769,31 @@ document.getElementById('AIAssistance').addEventListener('click', () => {
     })(document, 'script');
 });
 </script>
-<div id="mjq-widget" class="mjq-widgets" style="display: flex; align: center;"></div>
-<script src="https://www.myjobquote.co.uk/js/widget.js"></script>
+<div style="display: flex; justify-content: center; align-items: center;">
+<div id="mjq-widget" class="mjq-widgets"><script src="https://www.myjobquote.co.uk/js/widget.js"></script>
 <script>
 (new MyJobQuoteWidget).init({  
 targetId: 'mjq-widget', 
-userId: 'usr_ymikvhuqexc1xxqh6edqhw0l2dow',  theme: 'white-bg',  badgeName: 'myjobquote-standard-logo-with-tick'
+userId: 'usr_ymikvhuqexc1xxqh6edqhw0l2dow', 
+numberOfReviews: 10,    
+widgetStyle: 'rating-banner-minimal',  
+theme: 'dark' 
 });
 </script>
+</div>
+</div>
+<style>
+.mjq-widgets {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #000000;
+    border: 2px solid #EFFE8A;
+    width: 100vw;
+    max-width: 700px;
+}
+</style>
 </footer>
 </div>
 </body>
