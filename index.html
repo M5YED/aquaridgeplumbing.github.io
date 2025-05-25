@@ -385,9 +385,11 @@ async function submitemail(email) {
 <script src="script.js" defer></script>
 
 
-<div id="cookie-overlay" class="hidden">
-  <div class="cookie-content">
-    <h2 style="color: #009688;">Cookie Consent</h2>
+<!-- Cookie Button -->
+<img src="Cookie-Image.png" id="cookie-button" alt="Cookie Button" />
+  <div id="cookie-overlay">
+    <div class="overlay-content">
+      <h2 style="color: #009688;">Cookie Consent</h2>
     <div class="cookie-text"style="background: #FFFFFF;">
       <p>
         We use cookies to personalise content and ads, to provide social media features, 
@@ -395,24 +397,40 @@ async function submitemail(email) {
         with our social media, advertising, and analytics partners. For details, please review our 
         <a href="/policy/privacy">Privacy Policy</a>.
       </p>
-      <br>
       <p>
         Cookies help us improve your experience. You can manage your preferences or 
         accept all cookies by selecting the respective options below.
       </p>
     </div>
     <div class="cookie-buttons">
-      <button class="btn manage">Manage Preferences</button>
+      <button onclick="closeOverlay()" class="btn manage">Manage Preferences</button>
       <button class="btn accept">Accept</button>
     </div>
+    </div>
   </div>
-</div>
+<script>
+// Slide in cookie button after 5 seconds
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const cookieButton = document.getElementById('cookie-button');
+    cookieButton.classList.add('slide-in');
+  }, 5000);
+});
 
+// Open overlay on button click
+document.getElementById('cookie-button').addEventListener('click', () => {
+  document.getElementById('cookie-overlay').style.display = 'flex';
+});
+
+// Close overlay
+function closeOverlay() {
+  document.getElementById('cookie-overlay').style.display = 'none';
+}
+</script>
 <!-- Accept Button Response -->
 <div id="white-overlay">
   <p>Changes successfully saved!</p>
-</div>
-    
+</div>  
 <!-- Manage Preference Button Response -->
 <div id="manage-preferences-overlay" class="hidden">
   <div class="manage-content">
@@ -436,6 +454,7 @@ async function submitemail(email) {
     </div>
   </div>
 </div>
+    
 <div id="content">
 <center>
   <div class="banner" style="display: flex; align-items: center; justify-content: center; background-color: #A52A2A; padding: 20px;">
