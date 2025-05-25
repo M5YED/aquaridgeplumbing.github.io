@@ -128,6 +128,46 @@
         color: #080027;
     }
 
+    /* Cookie Button */
+    #cookie-button {
+        position: fixed;
+        bottom: 2vh;
+        left: -10vw;
+        width: 5vw;
+        height: auto;
+        cursor: pointer;
+        transition: left 0.5s ease;
+        z-index: 9999;
+    }
+
+    /* Slide-in animation class */
+    #cookie-button.slide-in {
+        left: 2vw;
+    }
+
+    /* Overlay */
+    #cookie-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.7);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+    }
+
+    /* Overlay Content */
+    .overlay-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        max-width: 400px;
+        text-align: center;
+    }
+
     /* Button styling */
     .glow-button {
         padding: 10px 20px;
@@ -353,70 +393,7 @@
         padding: 10px 15px;
     }
 
-    #cookie-overlay {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        color: #fff;
-        padding: 20px;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px);
-        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.5s ease-in-out;
-    }
-
-    #cookie-overlay.visible {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        z-index: 1;
-    }
-
-    /* Cookie content box */
-    .cookie-content {
-        max-width: 600px;
-        margin: 0 auto;
-        text-align: center;
-        padding: 20px;
-        border-radius: 8px;
-        color: #000;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        z-index: 1;
-    }
-
-    .cookie-content h2 {
-        margin-bottom: 10px;
-        font-size: 1.5em;
-        z-index: 1;
-    }
     
-    .cookie-text {
-        max-height: 100px;
-        overflow-y: auto;
-        margin: 10px 0;
-        padding: 10px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 5px;
-        text-align: left;
-        font-size: 0.9em;
-        z-index: 1;
-    }
-
-    .cookie-text a {
-        color: #054708;
-        text-decoration: underline;
-    }
-
-    .cookie-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 15px;
-        z-index: 1;
-    }
 
     .pricing_image {
         width: 30vw; 
