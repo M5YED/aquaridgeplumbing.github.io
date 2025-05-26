@@ -59,6 +59,7 @@
         <a href="https://www.aquaridgeplumbing.com/">Home</a>
         <a href="https://www.aquaridgeplumbing.com/pricing/">Service</a>
         <a href="https://www.aquaridgeplumbing.com/contact/">Pricing</a>
+        <a href="https://www.aquaridgeplumbing.com/contact/speed_dial/">Speed Dial</a>
     </div>
 </nav> 
 <!-- Company Name -->
@@ -447,6 +448,43 @@ function closeOverlay() {
     </div>
   </div>
 </div>
+
+<div id="timedOverlay">
+  <div class="overlay-content">
+    <div>
+        <span id="closeOverlay">&times;</span>
+        <p>
+            We'd love for you to have our number on "Speed Dail". That way, you'll always have our number, ready to dial, for those times when you need us the most!
+        </p>
+    </div>
+    <div class="cookie-buttons">
+      <button onclick="closeOverlay()" class="btn manage">Not Now</button>
+      <button class="btn accept" onclick="location.href='https://www.aquaridgeplumbing.com/contact/speed_dial/'">Sure, let's do it</button>
+    </div>
+  </div>
+</div>
+<script>
+  // Close overlay function
+  function closeOverlay() {
+    document.getElementById('timedOverlay').classList.remove('show');
+  }
+
+  // On DOM ready
+  document.addEventListener('DOMContentLoaded', () => {
+    // Only show overlay once per session
+    if (sessionStorage.getItem('overlayShown')) return;
+    sessionStorage.setItem('overlayShown', 'true');
+
+    // Show overlay after 15 seconds
+    setTimeout(() => {
+      document.getElementById('timedOverlay').classList.add('show');
+    }, 15000);
+
+    // Hook "X" close button
+    document.getElementById('closeOverlay').addEventListener('click', closeOverlay);
+  });
+</script>
+
     
 <div id="content">
 <center>
