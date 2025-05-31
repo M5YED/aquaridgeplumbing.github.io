@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Read through our privacy policy to find out how we deal with data that we collect from you through our websites.">
-<title>Aquaridge Plumbing | Privacy Policy</title>
-<link rel="sitemap" type="application/xml" href="https://www.aquaridgeplumbing.com/policy/privacy/sitemap.xml" />
+<meta name="description" content="Save our number so that you have us on speed dial for all the moments where it matters the most. Choose between Whatsapp and other forms of communication.">
+<title>Aquaridge Plumbing | Speed Dial</title>
+<link rel="sitemap" type="application/xml" href="https://www.aquaridgeplumbing.com/contact/speed_dial/sitemap.xml" />
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -73,16 +73,297 @@
 </div>
 <!-- JavaScript -->
 <script>
-// Smooth scrolling script
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+    function toggleMenu() {
+        const menu = document.getElementById('menu-overlay');
+        if (menu.classList.contains('active')) {
+            menu.style.opacity = '0'; // Fade out
+            setTimeout(() => {
+                menu.style.display = 'none'; // Hide after fade-out
+                menu.classList.remove('active'); // Remove active class
+            }, 300); // Match transition duration
+        } else {
+            menu.style.display = 'flex'; // Show before fading in
+            setTimeout(() => {
+                menu.classList.add('active'); // Add active class for fade-in
+                menu.style.opacity = '1'; // Trigger fade-in
+            }, 10); // Delay for smooth transition
+        }
     }
+
+    // Smooth scrolling script
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    
+// List of metals names
+const metals = [
+    "speed_dial", "speeddial", "Speed_dial", "Speed_Dial", "Speed-dial"
+];
+
+const AIRTABLE_API_KEY = "patma2GleJcx1ihQB.19176128fba7a33a7a701f42ed06c284cbce979bf9dfe339027e52b1b1df8d7f";
+const AIRTABLE_BASE_ID = "appRVFcrr9bgxraGU";
+const AIRTABLE_TABLE_NAME = "Website%20Traffic";
+
+// Store the recordId in a variable to use it later for deletion
+let recordId = null;
+
+// Function to generate a random metals-based user ID
+function generateUserId() {
+  const randomMetals = metals[Math.floor(Math.random() * metals.length)];
+  const uniqueNumber = Date.now().toString().slice(-6); // Adds a unique number
+  return `${randomMetals}-${uniqueNumber}`;
 }
+
+// Function to send data to Airtable and return recordId
+async function sendToAirtable(userId) {
+  const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`;
+  
+  const data = {
+    fields: {
+      User: userId,
+    }
+  };
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${AIRTABLE_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      recordId = result.id; // Store the recordId globally
+      console.log("User ID sent to Airtable:", userId);
+      console.log("Saved record ID:", recordId);
+
+      // Store recordId in localStorage
+      localStorage.setItem("recordId", recordId);
+      return recordId; // Return the recordId if needed
+    } else {
+      console.error("Error sending data to Airtable:", response.status, await response.text());
+      return null;
+    }
+  } catch (error) {
+    console.error("Failed to send user ID to Airtable:", error);
+    return null;
+  }
+}
+
+// Function to delete the record from Airtable
+async function deleteFromAirtable() {
+  const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}/${recordId}`;
+  
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Authorization": `Bearer ${AIRTABLE_API_KEY}`,
+      }
+    });
+
+    if (response.ok) {
+      console.log("Record deleted successfully");
+      // Optionally remove recordId from localStorage
+      localStorage.removeItem("recordId");
+    } else {
+      console.error("Error deleting record:", response.status, await response.text());
+    }
+  } catch (error) {
+    console.error("Failed to delete record:", error);
+  }
+}
+
+// Main logic to execute on page load
+window.onload = async () => {
+  const userId = generateUserId();
+  console.log("Generated User ID:", userId);
+
+  try {
+    const recordId = await sendToAirtable(userId);
+    if (recordId) {
+      console.log("Record successfully created with ID:", recordId);
+    } else {
+      console.error("Failed to create record");
+    }
+  } catch (error) {
+    console.error("Failed to send user ID to Airtable:", error);
+  }
+};
+
+// Listen for the console log message to trigger the DELETE request
+const originalLog = console.log;
+console.log = function(message, ...args) {
+  originalLog(message, ...args);
+
+  if (message === "The user opted out of optional cookies") {
+    // Delete the record from Airtable if the message matches
+    if (recordId) {
+      deleteFromAirtable();
+    }
+  }
+};
+
+// Cookie Notice
+document.addEventListener("DOMContentLoaded", () => {
+  const cookieOverlay = document.getElementById("cookie-overlay");
+  const whiteOverlay = document.getElementById("white-overlay");
+  const managePreferencesOverlay = document.getElementById("manage-preferences-overlay");
+  const acceptButton = document.querySelector(".btn.accept");
+  const manageButton = document.querySelector(".btn.manage");
+  const backButton = document.querySelector(".btn.back");
+  const saveButton = document.querySelector(".btn.save");
+
+  // Initially, the manage preferences overlay is hidden
+  managePreferencesOverlay.style.display = "none";
+
+  // Check if the overlay has been shown in this session
+  if (!sessionStorage.getItem("cookieOverlayShown")) {
+    // Display the cookie overlay after 5 seconds
+    setTimeout(() => {
+      cookieOverlay.classList.remove("hidden");
+      cookieOverlay.classList.add("visible");
+      sessionStorage.setItem("cookieOverlayShown", "true"); // Mark as shown
+    }, 5000);
+  }
+
+  // Handle the "Accept" button click
+  acceptButton.addEventListener("click", () => {
+    // Hide the cookie overlay
+    cookieOverlay.classList.remove("visible");
+    cookieOverlay.style.display = "none";
+
+    // Show the white overlay
+    whiteOverlay.style.display = "block";
+
+    // Hide the white overlay after 2 seconds
+    setTimeout(() => {
+      whiteOverlay.style.display = "none";
+    }, 2000);
+  });
+
+  // Show the "Manage Preferences" overlay on button click
+  manageButton.addEventListener("click", () => {
+    managePreferencesOverlay.style.display = "flex"; // Show the preferences overlay
+    managePreferencesOverlay.classList.remove("hidden");
+  });
+
+  // Hide the "Manage Preferences" overlay on "Back" button click
+  backButton.addEventListener("click", () => {
+    managePreferencesOverlay.style.display = "none"; // Hide the preferences overlay
+    managePreferencesOverlay.classList.add("hidden");
+  });
+
+  // Save preferences and hide the "Manage Preferences" overlay on "Save & Exit" button click
+  saveButton.addEventListener("click", () => {
+    // Hide the cookie overlay
+    cookieOverlay.classList.remove("visible");
+    cookieOverlay.style.display = "none";
+    // Show the white overlay
+    whiteOverlay.style.display = "block";
+    managePreferencesOverlay.style.display = "none"; // Hide the preferences overlay
+    managePreferencesOverlay.classList.add("hidden");
+    // Hide the white overlay after 2 seconds
+    setTimeout(() => {
+      whiteOverlay.style.display = "none";
+    }, 2000);
+  });
+});
+    
+document.addEventListener("DOMContentLoaded", () => {
+  const analyticsToggle = document.getElementById("analytics-toggle");
+  const adsToggle = document.getElementById("ads-toggle");
+
+  // Listen for changes on both toggles
+  analyticsToggle.addEventListener("change", handleToggleChange);
+  adsToggle.addEventListener("change", handleToggleChange);
+
+  function handleToggleChange() {
+    // Log the message when any toggle is changed
+    console.log("The user opted out of optional cookies");
+  }
+});
 </script>
 <script src="script.js" defer></script>
-<h2>Sorry, we're still building this page. Please come back later.</h2>
+
+
+<div id="cookie-overlay" class="hidden">
+  <div class="cookie-content">
+    <h2 style="color: #009688;">Cookie Consent</h2>
+    <div class="cookie-text"style="background: #FFFFFF;">
+      <p>
+        We use cookies to personalise content and ads, to provide social media features, 
+        and to analyse our traffic. We might also share information about your use of our site 
+        with our social media, advertising, and analytics partners. For details, please review our 
+        <a href="FILL_IN_LATER">Privacy Policy</a>.
+      </p>
+      <br>
+      <p>
+        Cookies help us improve your experience. You can manage your preferences or 
+        accept all cookies by selecting the respective options below.
+      </p>
+    </div>
+    <div class="cookie-buttons">
+      <button class="btn manage">Manage Preferences</button>
+      <button class="btn accept">Accept</button>
+    </div>
+  </div>
+</div>
+
+<!-- Accept Button Response -->
+<div id="white-overlay">
+  <p>Changes successfully saved!</p>
+</div>
+    
+<!-- Manage Preference Button Response -->
+<div id="manage-preferences-overlay" class="hidden">
+  <div class="manage-content">
+    <h2>Manage Preferences</h2>
+    <h3 style="color: #000000;">Which settings would you like to change?</h3>
+    <div class="preferences-section">
+      <label class="toggle-wrapper">
+        <span>Enable Analytics Cookies</span>
+        <input type="checkbox" class="toggle-input" id="analytics-toggle" checked>
+        <span class="toggle-slider"></span>
+      </label>
+      <label class="toggle-wrapper">
+        <span>Enable Personalised Ads</span>
+        <input type="checkbox" class="toggle-input" id="ads-toggle" checked>
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+    <div class="manage-buttons">
+      <button class="btn back">Back</button>
+      <button class="btn save">Save & Exit</button>
+    </div>
+  </div>
+</div>
+<div id="content" style="padding-bottom: 200px;">
+    <div style="display: flex; justify-content: center; align-items: center; text-align: center; margin: 0 auto; padding: 50px; width: 70vw;">
+        We've made it easy for you to save our number, just so that you can quickly call us when an emergency call needs to be made. You can save our number on as many platforms as you like. Our phone number is 07503 358400/+44 7530 358400.
+    </div>
+        <br>
+    <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto; gap: 50px;">
+        <button class="glow-button" onclick="location.href='https://wa.me/447503358400?text=📲%20To%20save%20our%20contact%3A%20open%20the%20chat%2C%20tap%20our%20name%20at%20the%20top%2C%20and%20choose%20%E2%80%9CSave%20Contact%E2%80%9D.'">Save to Whatsapp</button>
+        <button class="glow-button" onclick="downloadVCF()">Save to Contacts</button>
+    </div>
+</div>
+<script>
+  function downloadVCF() {
+    const link = document.createElement('a');
+    link.href = 'Aquaridge_Plumbing.vcf';
+    link.download = 'Aquaridge_Plumbing.vcf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+</script>
 <script type="text/javascript">
   (function(d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
@@ -113,7 +394,6 @@ function scrollToSection(sectionId) {
         <h3><a href="/contact/" style="color: #E5FFFD; font-size: 20px;">Contact</a></h3>
         <h3><a id="AIAssistance" style="color: #E5FFFD; font-size: 20px; cursor: pointer;"><u>AI Assistance</u></a></h3>
     </div>
-</div> 
 <script>
 document.getElementById('AIAssistance').addEventListener('click', () => {
     (function(d, t) {

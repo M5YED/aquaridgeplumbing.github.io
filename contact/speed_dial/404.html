@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="sitemap" type="application/xml" href="https://www.aquaridgeplumbing.com/sitemap.xml" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#1E7548"> 
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/ms-icon-150x150.png">
+    <meta name="msapplication-TileImage" content="/ms-icon-70x70.png">
+    <meta property="og:image" content="/AquaridgePlumbing_Open_Graph_Image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:title" content="Aquaridge Plumbing" />
+    <meta property="og:description" content="Got a leaking pipe? Or a dripping tap? We'll sort it out, just get in touch at www.aquaridgeplumbing.com" />
+    <meta property="og:url" content="https://www.aquaridgeplumbing.com/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aquaridge Plumbing">
+    <meta name="twitter:description" content="Save your business from wasted time. Order an automation system today.">
+    <meta name="twitter:image" content="/x-icon.png">
+    <link rel="stylesheet" href="style.css">
+    
+<!-- Main website content -->
+<div id="main-content">
+    <header>
+        <div class="header-content">
+            <!-- Company Logo -->
+            <a href="javascript:location.reload();">
+                <img src="AquaridgePlumbingLogo2_Transparent.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Aquaridge Plumbing Logo" class="logo">
+            </a>
+
+            <!-- Company Name -->
+            <h1>Aquaridge Plumbing</h1>
+            <nav>
+                <button onclick="location.href='https://www.www.aquaridgeplumbing.com.com/'">Home</button>
+                <button onclick="location.href='https://www.aquaridgeplumbing.com/pricing/'">Pricing</button><!-- FILL IN LATER-->
+                <button onclick="location.href='https://contact.rochdaleplumbers.com/contact/'">Contact</button><!-- FILL IN LATER-->
+            </nav>
+        </div>
+    </header>
+</div>
+<script>
+// Smooth scrolling script
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+</script>
+<!-- This sends the UserID to the Database. DO NOT EDIT!-->
+<script>
+// List of metals names
+const metals = [
+  "Iron", "Copper", "Aluminium", "Zinc", "Nickel", "Tin", "Lead", "Magnesium", "Chromium", "Manganese", "Gold", "Silver", "Platinum", "Palladium", "Rhodium", "Ruthenium", "Iridium", "Osmium", "Lithium", "Sodium", "Potassium", "Rubidium", "Cesium", "Francium", "Beryllium", "Calcium", "Strontium", "Barium", "Radium", "Scandium", "Titanium", "Vanadium", "Yttrium", "Zirconium", "Niobium", "Molybdenum", "Technetium", "Hafnium", "Tantalum", "Tungsten", "Rhenium", "Mercury", "Gallium", "Indium", "Thallium", "Bismuth", "Lanthanum", "Cerium", "Praseodymium", "Neodymium", "Promethium", "Samarium", "Europium", "Gadolinium", "Terbium", "Dysprosium", "Holmium", "Erbium", "Thulium", "Ytterbium", "Lutetium", "Actinium", "Thorium", "Protactinium", "Uranium", "Neptunium", "Plutonium", "Americium", "Curium", "Berkelium", "Californium", "Einsteinium", "Fermium", "Mendelevium", "Nobelium", "Lawrencium"
+];
+
+const AIRTABLE_API_KEY = "patV7GJaIPf1nmdjZ.bce781c5558e7d579e14541c546efb728a1a5099c417f9cfa9e7d9180de11c49";
+const AIRTABLE_BASE_ID = "appRVFcrr9bgxraGU";
+const AIRTABLE_TABLE_NAME = "Website%20Error%20Page";
+
+// Store the recordId in a variable to use it later for deletion
+let recordId = null;
+
+// Function to generate a random metals-based user ID
+function generateUserId() {
+  const randomMetals = metals[Math.floor(Math.random() * metals.length)];
+  const uniqueNumber = Date.now().toString().slice(-6); // Adds a unique number
+  return `${randomMetals}-${uniqueNumber}`;
+}
+
+// Function to send data to Airtable and return recordId
+async function sendToAirtable(userId) {
+  const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`;
+  
+  const data = {
+    fields: {
+      User: userId,
+    }
+  };
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${AIRTABLE_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      recordId = result.id; // Store the recordId globally
+      console.log("User ID sent to Airtable:", userId);
+      console.log("Saved record ID:", recordId);
+
+      // Store recordId in localStorage
+      localStorage.setItem("recordId", recordId);
+      return recordId; // Return the recordId if needed
+    } else {
+      console.error("Error sending data to Airtable:", response.status, await response.text());
+      return null;
+    }
+  } catch (error) {
+    console.error("Failed to send user ID to Airtable:", error);
+    return null;
+  }
+}
+
+// Main logic to execute on page load
+window.onload = async () => {
+  const userId = generateUserId();
+  console.log("Generated User ID:", userId);
+
+  try {
+    const recordId = await sendToAirtable(userId);
+    if (recordId) {
+      console.log("Record successfully created with ID:", recordId);
+    } else {
+      console.error("Failed to create record");
+    }
+  } catch (error) {
+    console.error("Failed to send user ID to Airtable:", error);
+  }
+};
+</script>
+<!-- This sends the UserID to the Database. DO NOT EDIT!-->
+<body><br><br><br><br><br><center><h1 style="color: #0A2919;">Whoops!<br>This isn't the page you were looking for.<br>Why don't you head home?</h1><br><button onclick="window.location.href='https://www.aquaridgeplumbing.com/'" class="glow-button">Come on, Let's go home...</button><br>
+<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '67d136d3e1220f97e80ade17' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production'
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+</center></body>
+</html>
