@@ -57,15 +57,15 @@
     <div id="menu-overlay" class="menu-overlay">
         <h3 style="font-size: 20px; color: #E5FFFD;">Main</h3>
         <a href="https://www.aquaridgeplumbing.com/">Home</a>
-        <a href="https://www.aquaridgeplumbing.com/pricing/">Service</a>
-        <a href="https://www.aquaridgeplumbing.com/contact/">Pricing</a>
+        <a href="https://www.aquaridgeplumbing.com/pricing/">Pricing</a>
+        <a href="https://www.aquaridgeplumbing.com/contact/">Contact</a>
         <a href="https://www.aquaridgeplumbing.com/contact/speed_dial/">Speed Dial</a>
     </div>
-</nav> 
+</nav>
 <!-- Company Name -->
 <h1>Aquaridge Plumbing</h1>
 <!-- Company Logo -->
-<a href="javascript:location.reload();">
+<a href="https://www.aquaridgeplumbing.com/">
     <img src="AquaridgePlumbingLogo2_Transparent.png" alt="Aquaridge Plumbing Logo" onerror="this.onerror=null; this.src='Error_Image.png';" class="logo">
 </a>
         </div>
@@ -345,12 +345,213 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 </div>
 <div id="content">
+<div style="text-align: center;">
+    <button class="glow-button" onclick="scrollToSection('fixed-quotes')" style="color: #A52A2A;">Fixed Quotes(Deals)</button>
+    <button class="glow-button" onclick="scrollToSection('approximate-quotes')" style="color: #A52A2A;">Approximate Quotes(All)</button>
+</div>
+<br>
+<div class="NewService" id="section_NewService" alt="Image Of a modern, luxury radiator" onerror="this.onerror=null; this.src='Error_Image.png';">
+    <div style="flex: 1; min-width: 300px;">
+        <h3 style="font-size: 30px; color: #E5FFFD;">New Services</h3>
+        <h2 style="font-size: 20px; color: #00CCB9;">We now provide radiator services! From installations, to repairs to even annual or quater-year maintenance services, we'll help you ensure that your systems are working efficiently all-day, everyday!
+        </h2>
+        <br><br>
+    </div>
+</div>
+<style>
+.NewService {
+    background-image: url('RadiatorImage.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 15%;
+    padding: 0 20px;
+    max-width: 100vw;
+    display: flex;
+    height: 70vh;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .NewService {
+    background-position: left center;
+  }
+}
+</style>
+
+
+
+
+<center><h2 id="fixed-quotes" style="font-size: 40px; color: #A52A2A; scroll-margin-top: 100px;">Fixed Quotes</h2></center>
+<br><br>
+<div id="Reference">
+    <div class="reference-container">
+        
+<!--Box 1--><div class="reference-card"><h3 style="font-size: 35px; color: blue;">*</h3><h3 style="color: #00CCB9;">Materials Included</h3></div>
+    
+<!--Box 2--><div class="reference-card"><h3 style="font-size: 35px; color: red;">*</h3><h3 style="color: #00CCB9;">Materials Not Included</h3></div>
+        
+    </div>
+</div>
+<!--Partition Between Service Code-->
+<div id="outdoor-taps" class="gap-space">
+<div class="service-title"><h2>Outdoor Taps</h2></div>
+    <div class="container">
+        
+<!--Box 1--><div class="service-card"><img src="outdoor-tap-image-1.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Tap Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">1 Outdoor Tap</h3><br><h3 style="color: #A52A2A;">£100</h3><h3 style="font-size: 35px; color: blue;">*</h3></div>
+    
+<!--Box 2--><div class="service-card"><img src="outdoor-tap-image-2.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Tap Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">2 Outdoor Taps</h3><br><h3 style="color: #A52A2A;">£150</h3><h3 style="font-size: 35px; color: blue;">*</h3></div>
+    
+<!--Box 3--><div class="service-card"><img src="outdoor-tap-image-3.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Tap Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">Outdoor Tap Repair</h3><br><h3 style="color: #A52A2A;">£30</h3><h3 style="font-size: 35px; color: red;">*</h3></div>
+        
+    </div>
+</div>
+<!--Partition Between Service Code-->
+<div id="Radiators" class="gap-space">
+<div class="service-title"><h2>Radiators</h2></div>
+    <div class="container">
+        
+<!--Box 1--><div class="service-card"><img src="radiator-image-1.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Radiator Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">Installation</h3><br><h3 style="color: #A52A2A;">£100</h3><h3 style="font-size: 35px; color: red;">*</h3></div>
+    
+<!--Box 2--><div class="service-card"><img src="radiator-image-2.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Radiator Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">Maintenance</h3><br><h3 style="color: #A52A2A;">£35</h3><h3 style="font-size: 35px; color: red;">*</h3></div>
+    
+<!--Box 3--><div class="service-card"><img src="radiator-image-3.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Radiator Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">Replacement</h3><br><h3 style="color: #A52A2A;">£40</h3><h3 style="font-size: 35px; color: red;">*</h3></div>
+        
+    </div>
+</div>
+<!--Partition Between Service Code-->
+<div id="Kitchen-Taps" class="gap-space">
+<div class="service-title"><h2>Kitchen Taps</h2></div>
+    <div class="container">
+        
+<!--Box 1--><div class="service-card"><img src="kitchen-tap-image-1.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Kitchen Tap Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">Installation</h3><br><h3 style="color: #A52A2A;">£50</h3><h3 style="font-size: 35px; color: red;">*</h3></div>
+    
+<!--Box 2--><div class="service-card"><img src="kitchen-tap-image-2.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Kitchen Tap Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">Maintenance</h3><br><h3 style="color: #A52A2A;">£30</h3><h3 style="font-size: 35px; color: red;">*</h3></div>
+    
+<!--Box 3--><div class="service-card"><img src="kitchen-tap-image-3.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Kitchen Tap Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">Replacement</h3><br><h3 style="color: #A52A2A;">£40</h3><h3 style="font-size: 35px; color: red;">*</h3></div>
+        
+    </div>
+</div>
+<!--Partition Between Service Code-->
+<div id="Bathroom-Vanity" class="gap-space">
+<div class="service-title"><h2>Bathroom Vanity</h2></div>
+    <div class="container">
+        
+<!--Box 1--><div class="service-card"><img src="bathroom-vanity-image-1.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Bathroom Vanity Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">Installation</h3><br><h3 style="color: #A52A2A;">£80</h3><h3 style="font-size: 35px; color: red;">*</h3></div>
+    
+<!--Box 2--><div class="service-card"><img src="bathroom-vanity-image-2.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Bathroom Vanity Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">Maintenance</h3><br><h3 style="color: #A52A2A;">£30</h3><h3 style="font-size: 35px; color: red;">*</h3></div>
+    
+<!--Box 3--><div class="service-card"><img src="bathroom-vanity-image-3.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Bathroom Vanity Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">Replacement</h3><br><h3 style="color: #A52A2A;">£60</h3><h3 style="font-size: 35px; color: red;">*</h3></div>
+        
+    </div>
+</div>
+<!--Partition Between Service Code-->
+<style>
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 30vw);
+    grid-template-rows: repeat(1, 30vh);
+    gap: 10px; /* Adjust gap between boxes */
+    justify-content: center;
+}
+
+.gap-space {
+    padding-bottom: 110px;
+}
+
+.service-card {
+    flex: 0 0 calc(33.33% - 13.33px); /* 3 cards per row with spacing */
+    height: 60vh;
+    text-align: center;
+    scroll-snap-align: start;
+}
+
+.reference-card {
+    flex: 0 0 calc(50% - 10px); /* 2 cards per row with spacing */
+    height: 20vh;
+    text-align: center;
+    scroll-snap-align: start;
+}
+
+.reference-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-title {
+    padding: 20px;
+    padding-bottom: 90px;
+}
+
+.service-card img {
+    width: 20vw;
+    height: auto;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+@media (max-width: 1200px) {
+  .service-title {
+    padding: 20px;
+    padding-bottom: 0px;
+  }
+
+  .gap-space {
+    padding-bottom: 50px;
+  }
+
+  .service-card {
+    height: auto;
+  }
+
+  .container {
+    grid-template-rows: auto;
+  }
+}
+</style>
+
+<div class="Next-Up-Service" id="section_NewService" alt="Image Of a modern, luxury bathroom" onerror="this.onerror=null; this.src='Error_Image.png';">
+    <div style="flex: 1; min-width: 300px;">
+        <h3 style="font-size: 30px; color: #E5FFFD;">Next Up...</h3>
+        <h2 style="font-size: 20px; color: #0A2919;">We'll soon be providing full bath and shower installation services. This will include electrical and non-electrical showers. We'll also be offering partial or full tiling projects as a package deal for your bathroom renovations.<br><br>We'll also be providing kitchen sink installation services. From the woodwork, to the sealed finishes, we'll help you get your facilities up and running ASAP!
+        </h2>
+        <br><br>
+    </div>
+</div>
+<style>
+.Next-Up-Service {
+    background-image: url('BathroomImage.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 50%;
+    padding: 0 20px;
+    max-width: 100vw;
+    display: flex;
+    height: 70vh;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .Next-Up-Service {
+    background-position: left center;
+  }
+}
+</style>
+
+<center><h2 id="approximate-quotes" style="font-size: 40px; color: #A52A2A; scroll-margin-top: 100px;">Approximate Quotes</h2></center><br><br>
 <div style="padding: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;" id="section_1">
     <div style="flex: 1; min-width: 300px;">
         <h3 style="font-size: 33px; color: #009688;">Dripping Taps</h3>
         <h2 style="font-size: 20px; color: #0A2919;">Ever seen some extra droplets fall out of your tap after you twist the handle? Well, it's not uncommon to come across these types of scenarios. The biggest problem is to let it drip, because once it starts, it doesn't know when to end!<br><br>Aquaridge Plumbing can fix your dripping taps from a service price of just £15! Our plumbers have the tools and skillset to be able to fix your dripping taps ASAP! That way, you won't have to worry about increasing water bills for water that you're not even using.
         </h2>
-        <span style="font-size: 30px; color: #A52A2A;">Only £15</span><span style="font-size: 15px; color: #0A2919;">(excluding extra materials)</span>
+        <span style="font-size: 30px; color: #A52A2A;">From £15</span><span style="font-size: 15px; color: #0A2919;">(excluding kitchen taps)</span>
         <br><br>
         <br>
     </div>
@@ -359,10 +560,10 @@ document.addEventListener("DOMContentLoaded", () => {
 <div style="padding: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;" id="section_2">
     <img class="pricing_image" src="Tap_Installation.jpg" onerror="this.onerror=null; this.src='Error_Image.png';">
     <div style="flex: 1; min-width: 300px;">
-        <h3 style="font-size: 33px; color: #009688;">Tap Installations</h3>
-        <h2 style="font-size: 20px; color: #0A2919;">Getting bored of your tap design? Yeah, we get bored of ours too. It's always good to change things up a bit.<br><br>Aquaridge Plumbing can install new taps into your facilities from a service price starting at £20. So, whether you're bored of your taps, or your taps just need an update, our plumbers will be ready to get you a new tap installed before you can even blink!
+        <h3 style="font-size: 33px; color: #009688;">Basin Installations</h3>
+        <h2 style="font-size: 20px; color: #0A2919;">Need a new sink installed somewhere? We'll sort it out! From working in the garage, to working in the garden, we'll set up your new sink wherever your heart desires.<br><br>We offer both classical and modern basins, so you get to choose the exact sink you think would look best in your setting.
         </h2>
-        <span style="font-size: 30px; color: #A52A2A;">Starting at £20</span><span style="font-size: 15px; color: #0A2919;">(tap price not included)</span>
+        <span style="font-size: 30px; color: #A52A2A;">Starting at £25</span>
         <br><br>
         <br>
     </div>
@@ -370,21 +571,21 @@ document.addEventListener("DOMContentLoaded", () => {
 <div style="padding: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;" id="section_3">
     <div style="flex: 1; min-width: 300px;">
         <h3 style="font-size: 33px; color: #009688;">Tap Checkups/Servicing</h3>
-        <h2 style="font-size: 20px; color: #0A2919;">Feel like you're getting an uneven water flow from taps? Or maybe you're not getting enough water flow? It might be best off to check why you're not getting enough water, or why you're getting too much.<br><br>Aquaridge Plumbing can take a look at what might be causing the issue. For only £20, we'll help you level out your water flow and even give you an assessment for your flow rate. That way, you'll be able to compare how much water you're getting compared to other houses in your area. We'll also take a look at your taps to make sure they're functioning properly. If needed, we'll even fix your tap or pipe for free!
+        <h2 style="font-size: 20px; color: #0A2919;">Feel like you're getting an uneven water flow from taps? Or maybe you're not getting enough water flow? It might be best off to check why you're not getting enough water, or why you're getting too much.<br><br>Our professionals can take a look at what might be causing the issue. We'll help you level out your water flow and even give you an assessment for your flow rate. That way, you'll be able to compare how much water you're getting compared to other houses in your area. We'll also take a look at your taps to make sure they're functioning properly. If needed, we'll replace your tap or pipe so your units are always running at optimum efficiency!
         </h2>
-        <span style="font-size: 30px; color: #A52A2A;">Only £20</span><span style="font-size: 15px; color: #0A2919;">(excluding extra materials)</span>
+        <span style="font-size: 30px; color: #A52A2A;">Between £20-£60</span>
         <br><br>
         <br>
     </div>
     <img class="pricing_image" src="Tap_Checkups.jpg" onerror="this.onerror=null; this.src='Error_Image.png';">
 </div>
 <div style="padding: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;" id="section_4">
-    <img class="pricing_image" src="Tap_Replacements.jpg" onerror="this.onerror=null; this.src='Error_Image.png';">
+    <img class="pricing_image" src="bar-shower.jpg" onerror="this.onerror=null; this.src='Error_Image.png';">
     <div style="flex: 1; min-width: 300px;">
-        <h3 style="font-size: 33px; color: #009688;">Tap Replacements</h3>
-        <h2 style="font-size: 20px; color: #0A2919;">Tap just broke down, Water gushing out uncontrollably. We've seen it all.<br><br>Aquaridge Plumbing can replace your broken taps from a starting price of just £15! Our plumbers are always on the move which means that they'll be knocking on your door as soon as you put the phone down!(Don't take this literally) We'll come in and save the day with our amazing tools and expertise(we know, we've mentioned this too many times already), so that you can get back to having a great day!
+        <h3 style="font-size: 33px; color: #009688;">Bar Showers</h3>
+        <h2 style="font-size: 20px; color: #0A2919;">Everyone wants to live the luxury, and what's more luxurious than a brand new bar shower? From the shower heads, to the shower tray, we'll make sure that your new shower is sealed up and leak proof, so that you can continue to enjoy your shower for many years to come!
         </h2>
-        <span style="font-size: 30px; color: #A52A2A;">Starting at £15</span>
+        <span style="font-size: 30px; color: #A52A2A;">Starting at £70</span>
         <br><br>
         <br>
     </div>
@@ -392,7 +593,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <div style="padding: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;" id="section_5">
     <div style="flex: 1; min-width: 300px;">
         <h3 style="font-size: 33px; color: #009688;">Pipe Replacements</h3>
-        <h2 style="font-size: 20px; color: #0A2919;">See your pipes becoming rusted and frail? Well, it's probably time for them to retire now.<br><br>Aquaridge Plumbing will replace your copper, stainless steel or other metal pipes for a starting price of £20.(we don't like plastic, so don't call us to replace plastic pipes!!!) We'll replace your pipes and then clean up too, so that you'll receive a hassle-free experience, you won't even know we were there!
+        <h2 style="font-size: 20px; color: #0A2919;">See your pipes becoming rusted and frail? Well, it's probably time for them to retire now.<br><br>Our experts will replace your copper, stainless steel or other metal pipes for a starting price of £20. We'll replace your pipes and then clean up too, so that you'll receive a hassle-free experience, you won't even know we were there!
         </h2>
         <span style="font-size: 30px; color: #A52A2A;">Starting at £20</span>
         <br><br>
@@ -404,8 +605,9 @@ document.addEventListener("DOMContentLoaded", () => {
     <img class="pricing_image" src="Pipe_Insulation.jpg" onerror="this.onerror=null; this.src='Error_Image.png';">
     <div style="flex: 1; min-width: 300px;">
         <h3 style="font-size: 33px; color: #009688;">Pipe Insulation/Servicing</h3>
-        <h2 style="font-size: 20px; color: #0A2919;">Coming soon...
+        <h2 style="font-size: 20px; color: #0A2919;">Want to give your pipes that extra layer of protection? If yes, insulating your pipework is the way to go!<br><br>Insulated pipework can last twice as long as uninsulated ones. So instead of your copper pipe lasting 25 years, you can help it last for 50 years instead. Although quite an investment, pipe faom or padding can ensure that your pipes are safe from oxidation(the thing that makes your pipe look green)and corrosion(the thing that makes your pipe weak&leak).
         </h2>
+        <span style="font-size: 30px; color: #A52A2A;">Starting at £10 per metre</span>
         <br><br>
         <br>
     </div>
