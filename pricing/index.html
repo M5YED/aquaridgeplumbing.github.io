@@ -417,7 +417,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 <!--Box 2--><div class="service-card"><img src="radiator-image-2.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Radiator Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">Maintenance</h3><br><h3 style="color: #A52A2A;">£35</h3><h3 style="font-size: 35px; color: red;">*</h3></div>
     
-<!--Box 3--><div class="service-card"><img src="radiator-image-3.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Radiator Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">Replacement</h3><br><h3 style="color: #A52A2A;">£40</h3><h3 style="font-size: 35px; color: red;">*</h3></div>
+<!--Box 3--><div class="service-card"><img src="radiator-image-3.png" onerror="this.onerror=null; this.src='Error_Image.png';" alt="Radiator Services - Aquaridge Plumbing"><h3 style="color: #00CCB9;">Replacement</h3><br><h3 style="color: #A52A2A;">£50</h3><h3 style="font-size: 35px; color: red;">*</h3></div>
         
     </div>
 </div>
@@ -510,6 +510,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   .container {
     grid-template-rows: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .service-card h3 {
+    font-size: 20px;
   }
 }
 </style>
