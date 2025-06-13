@@ -400,6 +400,15 @@
         border: none;
         border-radius: 20px;
     }
+
+    .pricing_image_mobile {
+        display: none;
+        width: 30vw; 
+        height: 30vw; 
+        max-width: 300px; 
+        border: none;
+        border-radius: 20px;
+    }
     
     .container {
         display: flex;
@@ -802,6 +811,14 @@
 }
         
 @media (max-width: 700px) {
+    .pricing_image {
+        display: none;
+    }
+
+    .pricing_image_mobile {
+        display: block;
+    }
+    
     .text-container {
         padding: 5px;
     }
