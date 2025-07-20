@@ -694,7 +694,35 @@ html {
     <h2 style="color: #00CCB9;">What's our customers saying?</h2><br>
     <div class="review-scroll-container">
 <!--Add More Here-->
-      <div class="review-card" style="padding-bottom: 100px;">
+      <div class="review-card">
+        <img src="Client_Testimonial_8.JPG" alt="Image Of Client Bathroom Sink" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+        <div class="stars">
+            <span>★★★★★</span> <!-- Five stars -->
+        </div>
+        <h3>"Love it!😍 It looks much better than before. Thank you☺️<br><br>I’d rate it 5⭐️!"<br>- Zahra Syeda</h3>
+        <h3 style="color: #00CCB9;">20th July 2025</h3>
+      </div>
+
+      <div class="review-card">
+        <img src="Client_Testimonial_7.JPG" alt="Image Of Client walk-in Shower" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+        <div class="stars">
+            <span class="stars" style="color: transparent; -webkit-text-stroke: 1px #054708;">★★★★★</span> <!-- Zero stars -->
+        </div>
+        <h3>(No Rating Given)</h3>
+        <h3>"Very nice young man  worked very hard"<br>- Sheila Mckelvey</h3>
+        <h3 style="color: #00CCB9;">16th July 2025</h3>
+      </div>
+        
+      <div class="review-card">
+        <img src="Client_Testimonial_6.JPG" alt="Image Of Client Bath Taps" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+        <div class="stars">
+            <span>★</span><span class="stars" style="color: transparent; -webkit-text-stroke: 1px #054708;">★★★★</span> <!-- One stars -->
+        </div>
+        <h3>"I was charged £30 before hand for fitting new bath taps and resealing bathroom. On coming to the job after much messing was told needed new sink vanity unit, then said..." <a class="read-more-btn" onclick="openOverlay(1)" style="color: #009688; cursor: pointer;">Read More</a><br>- April Melia</h3>
+        <h3 style="color: #00CCB9;">21st June 2025</h3>
+      </div>
+        
+      <div class="review-card">
         <img src="Client_Testimonial_5.JPG" alt="Image Of Client Outdoor Taps" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
         <div class="stars">
             <span>★★★★★</span> <!-- Five stars -->
@@ -703,7 +731,7 @@ html {
         <h3 style="color: #00CCB9;">22nd May 2025</h3>
       </div>
         
-      <div class="review-card" style="padding-bottom: 100px;">
+      <div class="review-card">
         <img src="Client_Testimonial_4.JPG" alt="Image Of Client Bathroom Sink" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
         <div class="stars">
             <span>★★★★★</span> <!-- Five stars -->
@@ -712,41 +740,104 @@ html {
         <h3 style="color: #00CCB9;">9th May 2025</h3>
       </div>
 
-    <div class="review-card">
+      <div class="review-card">
         <img src="Client_Testimonial_3.JPG" alt="Image Of Client Bathroom Sink" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
         <div class="stars">
             <span>★★★★★</span> <!-- Five stars -->
         </div>
         <h3>"I'd recommend aquaridge plumbing to everyone! They intalled my new bathroom taps perfectly!"<br>- Kalida Khatun</h3>
         <h3 style="color: #00CCB9;">2nd April 2025</h3>
-    </div>
+     </div>
         
-    <div class="review-card" style="padding-bottom: 100px;">
+      <div class="review-card">
         <img src="Client_Testimonial_2.JPG" alt="Image Of Client Kitchen Sink" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
         <div class="stars">
             <span>★★★★</span><span class="half-star" style="color: #A52A2A;">★</span> <!-- Four.Five stars -->
         </div>
         <h3>"The plumber was very professional and friendly. He replaced our faulty kitchen tap very quickly!"<br>- Tanzina Shikdar</h3>
         <h3 style="color: #00CCB9;">27th March 2025</h3>
-    </div>
+     </div>
         
-    <div class="review-card">
+     <div class="review-card">
         <img src="Client_Testimonial_1.JPG" alt="Image Of Client Wash Room Facility" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
         <div class="stars">
             <span>★★★★</span><span class="stars" style="color: transparent; -webkit-text-stroke: 1px #054708;">★</span> <!-- Four stars -->
         </div>
         <h3>"We had a few dripping taps which also had uneven pressure. We're pleased to say that Aquaridge Plumbing came quickly and fixed all of the taps for us."<br>- Irfan Chisti</h3>
         <h3 style="color: #00CCB9;">13th March 2025</h3>
-    </div>
+     </div>
         
     </div>
         <div class="stars">
-            <span>★★★★</span><span class="half-star" style="color: #A52A2A;">★</span> <!-- Four.Seven stars -->
+            <span>★★★★</span><span class="half-star" style="color: #A52A2A;">★</span> <!-- Four.Two stars -->
         </div>
         <h2>Overall Rating</h2>
-        <h2 style="color: #00CCB9;">4.7/5</h2>
+        <h2 style="color: #00CCB9;">4.2/5</h2>
   </div>
 </div>
+<!-- Backdrop for all Overlays -->
+<div class="backdrop" onclick="closeOverlay()"></div>
+
+<div class="overlay" id="overlay-1">
+    <button class="close-btn" onclick="closeOverlay()">×</button>
+        <div class="stars">
+            <span>★</span><span class="stars" style="color: transparent; -webkit-text-stroke: 1px #054708;">★★★★</span> <!-- One stars -->
+        </div>
+        <h4 style="color: #A52A2A;">
+            "I was charged £30 before hand for fitting new bath taps and resealing bathroom. On coming to the job after much messing was told needed new sink vanity unit, then said couldn't fit either taps on bath or sink and has in the process broken the waste trap under sink and resealed a part on bath, which was beyond poorly done.<br> No refund for the £30 for the silicone didn't use. Stay away, absolutely shambles, now will cost me more to find someone decent to fix the mess my bathroom is now in"<br>
+        </h4>
+        <br><br>
+        <h3 style="color: #00CCB9;">Team Response</h3>
+       <h4 style="color: #009688;">
+            Good evening April, we apologise for the delayed reply.<br><br>We’d like to clear up a few issues and misconceptions regarding your review:<br><br>- Sink/Basin Taps: We informed you that 1 of the isolation valves were jammed / “stuck”. After hearing this, we gave you our next steps, which you assisted us with by locating your main-water stop tap. As part of our next steps, we needed to remove a section of your sink traps. During this stage, we found that your traps/sink was corroded to the point where visible particles could be seen falling from the trap, as we removed it(without the need for tools, which is unusual). We also did inform you of this and you allowed us to skip the sink taps. We continued to try and remove your sink taps, but there were more problems which we faced. This is where we informed you to purchase a new vanity.<br><br>- Bath Taps: We informed you during our visit that the Bath taps were inaccessible. As the taps were situated in a position where it was surrounded by walls and tiles, and had no access panel, it would mean that we’d have to remove the whole bath tub from the wall and the shower screen, which we were not prepared to do, given the tight space to work in. We apologise for this circumstance, as it seems that the plumber who installed your bath tub taps did not anticipate a tap change or plan for maintenance.<br><br>- £30 Silicone(materials): As for the silicone, we informed you that we purchased the silicone bottles in a pack of 3, and since 1 bottle was used to temporarily reattach the remains of the sink trap until you purchase a new vanity/sink, the terms and conditions for a refund was invalid. We offered to allow you to keep your remaining 2 bottles of silicone since you did pay for them and we do not have space for them in our inventory/storage. We offered to deliver them to you and told you that we’d let you know when your package would be “depatched” / ready for shipment. Unfortunately, we gave you the notification(that your package has been prepared)after you wrote this review.<br><br>As we are still quite new to the industry, we still seek guidance from our mentors who helped us to become qualified plumbers. Our mentors had told us that we took the right course of action. We understand that another plumbing company with more experience may still be able to find a way to meet your needs, and we’d love to learn from what they do. We’d appreciate it if you could provide us with the name/contact details of the plumbers who succeed to meet your demands.<br><br>We apologise for this entire situation. We hope that you may trust us later on in the future, to be able to call us if you need us.<br><br>Yours sincerely,<br>Aquaridge Plumbing
+        </h4>
+</div>
+
+<script>
+    function openOverlay(id) {
+        // Hide all overlays before showing the selected one
+        document.querySelectorAll(".overlay").forEach(overlay => {
+            overlay.classList.remove("visible");
+        });
+        document.getElementById(`overlay-${id}`).classList.add("visible");
+        document.querySelector(".backdrop").classList.add("visible");
+    }
+
+    function closeOverlay() {
+        document.querySelectorAll(".overlay").forEach(overlay => {
+            overlay.classList.remove("visible");
+        });
+        document.querySelector(".backdrop").classList.remove("visible");
+    }
+
+    let currentRound = 1;
+    const totalRounds = 4;
+
+    document.getElementById("toggle-button").addEventListener("click", () => {
+        const currentBlogs = document.getElementById(`blogs-round-${currentRound}`);
+        
+        // Hide current round
+        currentBlogs.classList.add("hidden");
+
+        // Determine the next round
+        if (currentRound === totalRounds) {
+            currentRound = 1; // Reset to round 1 after reaching round 4
+            document.getElementById("toggle-button").style.display = "none"; // Hide the button
+        } else {
+            currentRound += 1; // Move to the next round
+        }
+
+        // Show the next round
+        const nextBlogs = document.getElementById(`blogs-round-${currentRound}`);
+            setTimeout(() => {
+            nextBlogs.classList.remove("hidden");
+        }, 500); // Matches the transition duration
+
+        // Update button text (but in this case, it will be hidden)
+    });
+</script>
+</div>
+
 
 <div class="container">
     <div class="text-container">
