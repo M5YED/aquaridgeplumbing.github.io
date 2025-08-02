@@ -74,6 +74,24 @@
 <!-- JavaScript -->
 <script>
 // Smooth scrolling script
+function toggleMenu() {
+    const menu = document.getElementById('menu-overlay');
+    if (menu.classList.contains('active')) {
+        menu.style.opacity = '0'; // Fade out
+        setTimeout(() => {
+            menu.style.display = 'none'; // Hide after fade-out
+            menu.classList.remove('active'); // Remove active class
+        }, 300); // Match transition duration
+    } else {
+        menu.style.display = 'flex'; // Show before fading in
+        setTimeout(() => {
+            menu.classList.add('active'); // Add active class for fade-in
+            menu.style.opacity = '1'; // Trigger fade-in
+        }, 10); // Delay for smooth transition
+    }
+}
+
+// Smooth scrolling script
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -81,8 +99,172 @@ function scrollToSection(sectionId) {
     }
 }
 </script>
+<script>
+// Function to send email logic
+async function submitemail(email) {
+    const EMAIL_SUBMISSION_API_KEY = "patma2GleJcx1ihQB.19176128fba7a33a7a701f42ed06c284cbce979bf9dfe339027e52b1b1df8d7f";
+    const EMAIL_SUBMISSION_BASE_ID = "appRVFcrr9bgxraGU";
+    const EMAIL_SUBMISSION_TABLE_NAME = "Policy%20Updates";
+
+    const url = `https://api.airtable.com/v0/${EMAIL_SUBMISSION_BASE_ID}/${EMAIL_SUBMISSION_TABLE_NAME}`;
+    const data = {
+      fields: {
+        Email: email,
+      },
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${EMAIL_SUBMISSION_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Email Submitted Successfully!");
+        return true;
+      } else {
+        console.error("Error submitting email:", response.status, await response.text());
+        return false;
+      }
+    } catch (error) {
+      console.error("Failed to submit email:", error);
+      return false;
+    }
+  }
+
+// Main logic
+  document.addEventListener("DOMContentLoaded", async () => {
+    const emailInput = document.getElementById("email-input");
+    const submitButton = document.getElementById("submit-button");
+    const successMessage = document.getElementById("success-message");
+    const errorMessage = document.getElementById("error-message");
+
+    // Function to handle email submission
+    const handleEmailSubmission = async () => {
+      const email = emailInput.value.trim();
+
+      // Validate email
+      if (!email || !email.includes("@")) {
+        errorMessage.textContent = "Please enter a valid email address.";
+        errorMessage.style.display = "block";
+        successMessage.style.display = "none";
+        return;
+      }
+
+      successMessage.style.display = "none";
+      errorMessage.style.display = "none";
+
+      submitButton.disabled = true;
+
+      const EmailSubmitted = await submitemail(email);
+
+      if (EmailSubmitted) {
+        successMessage.textContent = "Thank you. We'll get in touch soon!";
+        successMessage.style.display = "block"; // Show the existing success message
+        emailInput.value = ""; // Clear the input field
+      } else {
+        errorMessage.textContent = "Failed to send email to Database. Please try again later or choose a different method to get in touch.";
+        errorMessage.style.display = "block";
+      }
+      submitButton.disabled = false; // Re-enable the button
+    };
+
+    // Subscription event listener for button click
+    submitButton.addEventListener("click", handleEmailSubmission);
+
+    // Event listener for "Enter" key press
+    emailInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        handleEmailSubmission(); // Call the same logic as the button click
+      }
+    });
+  });
+</script>
 <script src="script.js" defer></script>
-<h2>Sorry, we're still building this page. Please come back later.</h2>
+<div style="padding: 20px;">
+<center><h2>Privacy Policy</h2></center>
+<center><h3>
+These privacy policies cover the terms and conditions set out by Aquaridge Plumbing in relation to the storage, use and transferal of datawithin the company. Aquaridge Plumbing aims to uphold all regulations in relation to data handling in accordance with the guidlines set out by the Greater Manchester Combined Authority (GMCA). Any potential violations to policy guidelines, commited by Aquaridge Plumbing, should be communicated with the company in order for rectification.
+</h3></center>
+</div>
+<div style="padding: 20px;">
+
+<section id="privacy-policy">
+  <h2>Privacy Policy</h2>
+  
+  <h3>About Us</h3>
+  <p>Aquaridge Plumbing is a UK‑based Trades organisation committed to processing personal data in compliance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018. We are the data controller for information you share with us or that we collect.</p>
+  
+  <h3>Why We Collect Personal Information</h3>
+  <p>We process personal information for purposes including: providing services, communicating with customers, fulfilling contracts, improving our systems, and legitimate interest (e.g. securing systems or calculating invoices). </p>
+
+  <h3>Types of Information We Collect</h3>
+  <p>We collect:</p>
+  <ul>
+    <li>Identification & contact details (e.g. name, email, phone number)</li>
+    <li>Location (e.g. postcode, town/city)</li>
+    <li>Usage data from our website or automation systems (e.g. "Plumbing Assistant")</li>
+    <li>Country/region information for legal compliance</li>
+    <li>Purchase and transaction data retained securely (screenshots, invoices, reciepts, text confirmations)</li>
+  </ul>
+
+  <h3>How We Use Your Information</h3>
+  <p>Your data is used solely for: delivering services, communicating with you, analysing system usage, improving user experience, enforcing our contracts, and complying with legal obligations (e.g. anti‑money laundering checks).</p>
+
+  <h3>How We Collect Information</h3>
+  <p>We collect personal information directly from you (e.g. forms, our website, social media), from usage of our systems, networking platforms (e.g. MyJobQuote, MyBuilder, NeedHelp), or from publicly available sources such as client websites.</p>
+
+  <h3>Website & Cookies</h3>
+  <p>We collect anonymised usage data via cookies and similar technologies to monitor and improve our website. We display clear notices and allow opt‑out where possible. Collected data is used only for enhancing user experience and performance monitoring.</p>
+
+  <h3>Data Storage, Transfer & Security</h3>
+  <p>Personal data is stored on secure UK‑based systems (e.g. Airtable) or limited-access external storage.</p>
+  <p>We apply organisational and technical security controls, including access controls, encryption, and confidentiality training for those handling data, to protect personal information from unauthorized access. Only certain members of Aquaridge Plumbing have full access to personal data.</p>
+
+  <h3>Data Retention</h3>
+  <p>We retain personal data until a removal request is made by the individual who the data belongs to. Data is kept securely on different databases for organsational purposes.</p>
+
+  <h3>Your Rights</h3>
+  <ul>
+    <li>Right to be informed, access, rectify, erase, restrict processing, object, data portability, and rights related to automated decision-making under UK GDPR.</li>
+    <li>You may withdraw consent at any time without affecting lawful processing before withdrawal.</li>
+    <li>Requests should be sent to our Data Protection Contact at: <a href="mailto:support@aquaridgeplumbing.com">support@aquaridgeplumbing.com</a>, or through our secure automations systems, or through our contact form at: <a href="https://www.aquaridgeplumbing.com/contact/">https://www.aquaridgeplumbing.com/contact</a>.</li>
+  </ul>
+  
+  <h3>How to Complain</h3>
+  <p>If you have concerns about our data handling or compliance, please contact us first. You also have the right to complain to the UK Information Commissioner’s Office at <a href="https://ico.org.uk">ico.org.uk</a>.</p>
+
+  <h3>Changes to This Policy</h3>
+  <p>We may update this policy periodically to reflect changes in practices or legal requirements. We will indicate the revision date at the bottom of this page. All individuals who have their data stored on our database(s) will be contacted everytime an update is made.</p>
+</section>
+
+<style>
+h3 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 20px;
+}
+</style>
+</div>
+<div style="padding: 5px;"><center><p style="font-size: 20px;">End Of Privacy Policy</p></center></div>
+<div style="padding: 10px:">
+    <center><h3>Changes made to these policies will be communicated via Email. All APC's(previous and present) will be notified, as well as 3rd party viewers. By submitting your email below, you agree to become a 3rd party viewer and agree to be notified of any changes to this document when modifications are made. To unsubscribe, contact the Aquaridge Plumbing support team and an APE will remove your email address from the Policy Update mailing list.</h3></center><br><br>
+    <div style="display: flex; padding: 10px; margin: 0; gap: 10px;">
+        <input type="email" id="email-input" placeholder="Enter your email" required />
+        <button id="submit-button">Submit Email</button>
+        <p id="success-message" style="color: #000000;">You are now a registered 3rd party viewer!</p>
+        <p id="error-message" class="error-message" style="color: #000000;">Please enter a valid email address.</p>
+    </div><br><br>
+    <p style="text-align: right; padding: 5px;">Last Modified: 11:46pm Saturday 2nd August 2025</p>
+</div>
 <script type="text/javascript">
   (function(d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
@@ -113,7 +295,7 @@ function scrollToSection(sectionId) {
         <h3><a href="/contact/" style="color: #E5FFFD; font-size: 20px;">Contact</a></h3>
         <h3><a id="AIAssistance" style="color: #E5FFFD; font-size: 20px; cursor: pointer;"><u>AI Assistance</u></a></h3>
     </div>
-</div> 
+</div>
 <script>
 document.getElementById('AIAssistance').addEventListener('click', () => {
     (function(d, t) {
