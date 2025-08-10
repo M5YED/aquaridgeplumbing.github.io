@@ -995,23 +995,42 @@ document.querySelectorAll('.faq-question').forEach(button => {
 });
 </script>
 <script type="text/javascript">
-  (function(d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function() {
-        window.voiceflow.chat.load({
-          verify: { projectID: '67de60bcfcf169f7d050d7e8' },
-          assistant: {
-            persistence: 'sessionStorage'
-          },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          voice: {
-            url: "https://runtime-api.voiceflow.com"
-          }
-        });
-      }
-      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-  })(document, 'script');
+// Voiceflow Agent
+(function(d, t) {
+    var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+    v.onload = function() {
+        return window.voiceflow.chat.load({
+            verify: { projectID: '67de60bcfcf169f7d050d7e8' },
+            assistant: {
+                persistence: 'sessionStorage'
+            },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            voice: {
+                url: "https://runtime-api.voiceflow.com"
+            }
+        }).then(() => {
+            window.voiceflow.chat.proactive.clear();
+
+            // Check if the user has already pressed the launcher
+            if (!localStorage.getItem('voiceflow_launcherPressed')) {
+                setTimeout(() => {
+                    try {
+                        window.voiceflow.chat.proactive.push({ 
+                            type: 'text', 
+                            payload: { message: "Free Estimate Quotes Available" }
+                        });
+                    } catch (error) {
+                        console.error("Error displaying proactive message:", error);
+                    }
+                }, 5000); // 5-second delay
+            }
+        }).catch(err => console.error("Error loading Voiceflow chat:", err));
+    };
+    v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+    v.type = "text/javascript";
+    s.parentNode.insertBefore(v, s);
+})(document, 'script');
 </script>
 <footer style="background-color: #009688; color: #E5FFFD;">
 <div style="display: flex; justify-content: center;">
