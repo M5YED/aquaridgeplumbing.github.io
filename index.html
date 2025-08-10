@@ -1000,10 +1000,10 @@ document.querySelectorAll('.faq-question').forEach(button => {
       v.onload = function() {
         window.voiceflow.chat.load({
           verify: { projectID: '67de60bcfcf169f7d050d7e8' },
-          url: 'https://general-runtime.voiceflow.com',
           assistant: {
             persistence: 'sessionStorage'
-          }
+          },
+          url: 'https://general-runtime.voiceflow.com',
           versionID: 'production',
           voice: {
             url: "https://runtime-api.voiceflow.com"
