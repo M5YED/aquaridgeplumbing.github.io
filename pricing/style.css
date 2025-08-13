@@ -11,6 +11,7 @@
         height: 100%;
         overflow-x: hidden;
         margin: 0;
+        scroll-padding-top: 100px; /* adjust based on fixed header height */
     }
 
     @font-face {
@@ -127,6 +128,214 @@
     nav button:hover {
         background-color: #EFFE8A;
         color: #080027;
+    }
+
+    .contactform{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .userForm {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+    }
+
+    form {
+        background: #f4f4f4;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-top: 10px;
+    }
+
+    input {
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .roundbutton {
+        margin-top: 15px;
+        background-color: #00CCB9;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .roundbutton:hover {
+        background-color: #0A2919;
+    }
+
+    .email-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .email-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000000;
+        position: relative;
+        width: 100vw;
+        height: 40vh;
+    }
+
+    .email-icon {
+        width: 100%;
+        height: 100%;
+        transition: filter 0.3s ease;
+    }
+
+    .glow-shadow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(20px);
+        z-index: 0;
+        opacity: 0.6;
+    }
+
+    svg {
+        position: relative;
+        z-index: 1;
+    }
+
+    .centered-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Container styling for positioning */
+    .second_menu_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    /* Gold button styling */
+    .second_menu_button {
+        background-color: #EFFE8A;
+        color: #00CCB9;
+        font-size: 24px;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    .second_menu_button:hover {
+        transform: scale(1.1);
+        animation: none;
+        border-radius: 10px;
+        color: #00CCB9;
+        background-color: #A52A2A;
+    }
+
+    /* Hidden overlay by default */
+    .second_menu_overlay {
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        top: 60px;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: #00CCB9;
+        width: 80vw;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        overflow-y: auto;
+        max-height: 300px;
+    }
+
+    .second_menu_overlay h3 {
+        color: #E5FFFD;
+        font-size: 20px;
+    }
+
+    /* Links inside the overlay */
+    .second_menu_overlay a {
+        text-decoration: none;
+        color: #009688;
+        font-size: 18px;
+        font-family: Arial, sans-serif;
+        transition: color 0.2s ease;
+        cursor: pointer;
+    }
+
+    .second_menu_overlay a:hover {
+        color: #EFFE8A;
+    }
+
+    /* Active menu overlay (visible with animation) */
+    .second_menu_overlay.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+   .second_menu_columns {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px; /* spacing between the two columns */
+        flex-wrap: wrap; /* optional: ensures responsiveness */
+        align-items: flex-start;
+    }
+
+   .menu-column {
+        display: flex;
+        flex-direction: column;
+        min-width: 200px;
+        justify-content: flex-start;
+        align-items: flex-start; /* Add this */
+    }
+
+    .links:hover {
+        color: #EFFE8A;
+    }
+
+    .emails {
+        color: #A52A2A;
+    }
+
+    .bold-words {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+
+    .EmailPageText {
+        color: #0A2919;
+        font-family: 'TNR', serif; 
+        font-size: 25px;
+        margin: 0;
+        flex-grow: 1;
     }
 
     .NewService {
@@ -509,9 +718,24 @@
         padding: 10px 15px;
     }
 
-    
+    .pricing_image_website {
+        width: 30vw; 
+        height: 30vw; 
+        max-width: 300px; 
+        border: none;
+        border-radius: 20px;
+    }
 
-    .pricing_image {
+    .pricing_image_mobile {
+        width: 30vw; 
+        height: 30vw; 
+        max-width: 300px; 
+        border: none;
+        border-radius: 20px;
+        display: none;
+    }
+
+    .pricing_image_webmob {
         width: 30vw; 
         height: 30vw; 
         max-width: 300px; 
@@ -867,6 +1091,7 @@
         height: 100%;
         overflow-x: hidden;
         margin: 0;
+        scroll-padding-top: 90px; /* adjust based on your fixed header height */
     }
     
     header {
@@ -887,6 +1112,12 @@
     }
 
     .menu-overlay {
+        top: 60px;
+        left: -10px;
+        max-width: 30vw;
+    }
+
+    .second-menu-overlay {
         top: 60px;
         left: -10px;
         max-width: 30vw;
@@ -935,6 +1166,14 @@
 
     .NewService {
         background-position: left center;
+    }
+
+    .pricing_image_website {
+        display: none;
+    }
+
+    .pricing_image_mobile {
+        display: flex;
     }
 }
         
@@ -985,6 +1224,7 @@
         height: auto;
         z-index: 10;
         opacity: 1 !important;
+        padding: 1px 10px;
     }
 
     body {
@@ -996,8 +1236,8 @@
         padding: 5px 10px;
     }
 
-    header {
-        padding: 1px 10px;
+    .second-menu-button {
+        padding: 5px 10px;
     }
 }
 
