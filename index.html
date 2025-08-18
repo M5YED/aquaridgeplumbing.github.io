@@ -103,7 +103,7 @@
     
 // List of metals names
 const metals = [
-  "Iron", "Copper", "Aluminium", "Zinc", "Nickel", "Tin", "Lead", "Magnesium", "Chromium", "Manganese", "Gold", "Silver", "Platinum", "Palladium", "Rhodium", "Ruthenium", "Iridium", "Osmium", "Lithium", "Sodium", "Potassium", "Rubidium", "Cesium", "Francium", "Beryllium", "Calcium", "Strontium", "Barium", "Radium", "Scandium", "Titanium", "Vanadium", "Yttrium", "Zirconium", "Niobium", "Molybdenum", "Technetium", "Hafnium", "Tantalum", "Tungsten", "Rhenium", "Mercury", "Gallium", "Indium", "Thallium", "Bismuth", "Lanthanum", "Cerium", "Praseodymium", "Neodymium", "Promethium", "Samarium", "Europium", "Gadolinium", "Terbium", "Dysprosium", "Holmium", "Erbium", "Thulium", "Ytterbium", "Lutetium", "Actinium", "Thorium", "Protactinium", "Uranium", "Neptunium", "Plutonium", "Americium", "Curium", "Berkelium", "Californium", "Einsteinium", "Fermium", "Mendelevium", "Nobelium", "Lawrencium"
+  "Homepage", "Home", "homepage", "HomePage", "HOMEPAGE"
 ];
 
 const AIRTABLE_API_KEY = "patma2GleJcx1ihQB.19176128fba7a33a7a701f42ed06c284cbce979bf9dfe339027e52b1b1df8d7f";
@@ -116,8 +116,7 @@ let recordId = null;
 // Function to generate a random metals-based user ID
 function generateUserId() {
   const randomMetals = metals[Math.floor(Math.random() * metals.length)];
-  const uniqueNumber = Date.now().toString().slice(-6); // Adds a unique number
-  return `${randomMetals}-${uniqueNumber}`;
+  return randomMetals;
 }
 
 // Function to send data to Airtable and return recordId
