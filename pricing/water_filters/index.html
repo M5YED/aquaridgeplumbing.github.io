@@ -60,6 +60,9 @@
         <a href="https://www.aquaridgeplumbing.com/pricing/">Pricing</a>
         <a href="https://www.aquaridgeplumbing.com/contact/">Contact</a>
         <a href="https://www.aquaridgeplumbing.com/contact/speed_dial/">Speed Dial</a>
+        <br>
+        <h3 style="font-size: 20px; color: #E5FFFD;">Other</h3>
+        <a href="https://www.aquaridgeplumbing.com/pricing/water_filters/">Water Filters</a>
     </div>
 </nav>
 <!-- Company Name -->
@@ -695,7 +698,7 @@ async function submitemail(email) {
                 </div>
                 <div class="product-details">
                     <div class="product-text">
-                        <h2>Waterdrop(10UA/15UA)</h2>
+                        <h2>Waterdrop (10UA/15UA)</h2>
                         <p>The Waterdrop 10UA, a highly recommended water filter throughout the internet, features a filtration accuracy of 0.5μm, allowing it to filter a huge variety of contaminants, including chlorine, lead, rust, sand, chlorofoam and more!</p>
                     </div>
                     <table>
@@ -765,177 +768,6 @@ async function submitemail(email) {
         <button class="arrow arrow-right" onclick="nextProduct('section3')">&#10095;</button>
     </div>
 </div>
-<style>
-.products {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-.product-wrapper {
-    position: relative;
-    width: min(100%, 900px);
-    margin: 0 auto;
-}
-.product-container {
-    display: none;
-    flex-wrap: wrap;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,.15);
-    overflow: hidden;
-}
-.product-container.aq-is-active {
-    display: flex;
-    position: relative;
-    width: 100%;
-}
-.product-image {
-    flex: 1 1 300px;
-    background: #eee;
-}
-.product-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-.product-details {
-    flex: 2 1 400px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-.product-text h2 {
-    margin: 0;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-th,td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-th {
-    background: #f2f2f2;
-}
-.price-container {
-    display: flex;
-    gap: 15px;
-}
-.price-box {
-    flex: 1;
-    background: #eaf7ef;
-    padding: 15px;
-    text-align: center;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 1.1em;
-    border: 1px solid #1E7548;
-    color: #1E7548;
-}
-.button-container {
-    display: flex;
-    gap: 15px;
-}
-.button-container button {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color .3s ease;
-}
-.btn-company {
-    background: #1E7548;
-    color: #fff;
-}
-.btn-company:hover {
-    background: #155a37;
-}
-.btn-self {
-    background: #A52A2A;
-    color: #fff;
-}
-.btn-self:hover {
-    background: #7d2020;
-}
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    background: rgba(0,0,0,.5);
-    color: #fff;
-    font-size: 1.6rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-}
-.arrow:hover {
-    background: rgba(0,0,0,.75);
-}
-.arrow-left {
-    left: -50px;
-}
-.arrow-right {
-    right: -50px;
-}
-
-/* Special Layout */
-.special-layout {
-    flex-direction: column;
-}
-.special-layout img{
-    max-height: 30vh;
-}
-.special-layout .product-text {
-    padding: 20px;
-}
-.special-layout .bottom-split {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-}
-.special-layout .bottom-left {
-    flex: 1;
-}
-.special-layout .bottom-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-#High_Quality,#Most_Affordable,#Top_Rated,#AI_Generation,#Disclaimers {
-    padding: 30px;
-}
-
-@media (max-width: 768px) {
-  .product-container.aq-is-active {
-      flex-direction: column;
-  }
-  .special-layout .bottom-split {
-      flex-direction: column;
-  }
-  #High_Quality,#Most_Affordable,#Top_Rated,#AI_Generation,#Disclaimers {
-    padding: 15px;
-  }
-}
-
-@media (max-width: 400px) {
-  #High_Quality,#Most_Affordable,#Top_Rated,#AI_Generation,#Disclaimers {
-    padding: 10px;
-  }
-}
-</style>
 
 <script>
 const sectionStates = {
