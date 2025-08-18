@@ -1336,8 +1336,20 @@
         flex-direction: column;
     }
     
-    #High_Quality,#Most_Affordable,#Top_Rated,#AI_Generation,#Disclaimers {
+    #High_Quality,#Most_Affordable,#Top_Rated,#AI_Generation {
+        padding: 10px;
+    }
+
+    #Disclaimers {
         padding: 15px;
+    }
+
+    .arrow-left {
+        left: -10px;
+    }
+
+    .arrow-right {
+        right: -10px;
     }
 }
         
