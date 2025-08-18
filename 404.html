@@ -60,9 +60,6 @@
         <a href="https://www.aquaridgeplumbing.com/pricing/">Pricing</a>
         <a href="https://www.aquaridgeplumbing.com/contact/">Contact</a>
         <a href="https://www.aquaridgeplumbing.com/contact/speed_dial/">Speed Dial</a>
-        <br>
-        <h3 style="font-size: 20px; color: #E5FFFD;">Other</h3>
-        <a href="https://www.aquaridgeplumbing.com/pricing/water_filters/">Water Filters</a>
     </div>
 </nav>
 <!-- Company Name -->
@@ -82,6 +79,24 @@ function scrollToSection(sectionId) {
         section.scrollIntoView({ behavior: 'smooth' });
     }
 }
+
+// Header Menu Overlay
+    function toggleMenu() {
+        const menu = document.getElementById('menu-overlay');
+        if (menu.classList.contains('active')) {
+            menu.style.opacity = '0'; // Fade out
+            setTimeout(() => {
+                menu.style.display = 'none'; // Hide after fade-out
+                menu.classList.remove('active'); // Remove active class
+            }, 300); // Match transition duration
+        } else {
+            menu.style.display = 'flex'; // Show before fading in
+            setTimeout(() => {
+                menu.classList.add('active'); // Add active class for fade-in
+                menu.style.opacity = '1'; // Trigger fade-in
+            }, 10); // Delay for smooth transition
+        }
+    }
 </script>
 <!-- This sends the UserID to the Database. DO NOT EDIT!-->
 <script>
