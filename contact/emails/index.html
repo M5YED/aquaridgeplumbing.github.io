@@ -549,25 +549,78 @@ updateColor();
         <p id="success-message" style="color: #000000;">You are now a registered 3rd party viewer!</p>
         <p id="error-message" class="error-message" style="color: #000000;">Please enter a valid email address.</p>
     </div>
+</div>
+
+<div id="Data-Removal" style="padding: 30px;">
+    <h2>Data-Removal</h2>
+    <span class="EmailPageText" id="Policy-Unsubscribe">We allow customers to unsubscribe from our policy updates using our automation software. Customers are requested to delete their data from our database, should they not want us to keep their data. All personal data on our databases remain secure and private, and are treated in accordance with our <a href="/policy/privacy/" style="color: #00CCB9;">Privacy Policy</a>.
     <br><br>
-    <span class="EmailPageText" id="Policy-Unsubscribe">We allow customers to unsubscribe from our policy updates using our AI software. We do this so that customers can unsubscribe at their own pace. We tend to get too busy to unsubscribe customers ourselves, so the delay in manually removing email addresses from our policy notification list can extend to days, weeks, or even months.
-    <br><br>
-    To remove your email from our policy notification list, we've made some steps for you to follow. This is the quickest way to unsubscribe from our list and should only take around 2 minutes.
+    To remove your email from our policy notification list, follow the steps below. This process should take around 2 minutes to complete. and is best completed on desktop view. For mobile view, the chat with "Plumbing Assistant" has been pre-initiated.
     <br>
     <b>Step 1</b>: Open the chat with "Plumbing Assistant". You will find the chat bubble on the bottom-right of your screen.<br>
     <b>Step 2</b>: Click the "I want to talk to support" button.<br>
     <b>Step 3</b>: Click the "Answer my query" button.<br>
     <b>Step 4</b>: Type "Unsubscribe me from the mailing list" and submit the message.<br>
     <b>Step 5</b>: Click the "Policy Updates" button.<br>
-    <b>Step Extra</b>: If you are a customer or have been allocated a sort code, type out your sort code.<br>
     <b>Step 6</b>: Type out your email.<br>
+    <b>(Extra: If you are a customer or have been allocated a sort code, type out your sort code.)</b><br>
     <b>Objective Complete</b>
     <br><br>
-    If you are unable to navigate through these instructions, just send a message to <a href="mailto:support@aquaridgeplumbing.com" class="emails">support@aquaridgeplumbing.com</a> and say you don't want to receive anymore Policy Update notifications. Please note that the delay time for people who contact us to remove their email address from our policy notification list can extend to a few days, weeks or even months.</span>
+    <div id="Mobile-Plumbing_Assistant" class="mobile-view">
+        <!-- The chat widget will load here -->
+    </div>
+    <style>
+        .mobile-view {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-view {
+                display: flex;
+                justify-content: center;
+                align: center;
+                width: 80vw;
+                height: 80vh;
+                border: 1px solid #ccc;
+                border-radius: 30px;
+                background-color: green;
+            }
+        }
+    </style>
+    <script>
+      // Wait for the Voiceflow library to load before initializing the chat
+      (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          // Initialize the Voiceflow chat widget
+          window.voiceflow.chat.load({
+            verify: {
+              projectID: "67de60bcfcf169f7d050d7e8" // Replace with your Voiceflow project ID
+            },
+            url: "https://general-runtime.voiceflow.com",
+            versionID: "production",
+            assistant: {
+                persistence: 'memory' // Set your preferred persistence option here
+            },
+            render: {
+              mode: 'embedded', // Embed mode
+              target: document.getElementById('Mobile-Plumbing_Assistant'), // Target element
+            },
+            autostart: true // Automatically start the chat widget
+          });
+        };
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; // Voiceflow widget script
+        v.type = "text/javascript";
+        s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+    If you are unable to navigate through these instructions, please send a message to <a href="mailto:support@aquaridgeplumbing.com" class="emails">support@aquaridgeplumbing.com</a> with the message "Unsubscribe from the Policy Update notifications". Please note that the delay time for people who contact us to remove their email address from our policy notification list can extend to a few days, weeks or months. Emails will be categorised based on emergancy and importance.</span>
+    <br><br><br><br>
+    <span class="EmailPageText">We also allow customer access to our database so that customers can delete their data from our database themselves. You can choose to view, update or delete your data.
     <br><br>
-    <span class="EmailPageText" id="Data-Removal">We also allow customer access to our database so that customers can delete their data from our database themselves. You can choose to view, update or delete your data.
+    To remove your email from our policy notification list, follow the steps below. This process should take around 5 minutes to complete and is best completed on desktop view. For mobile view, the chat with "Plumbing Assistant" has been pre-initiated above.
     <br><br>
-    To remove your data from our database, we've made some steps for you to follow. This is the quickest way to delete your data and should only take around 5 minutes.
+    Please note that you will need your sort code to delete or access your personal data from the database. Your sort code is a 6-digit number that is accociated to your information. You can find this code in every email that was sent to you by Aquaridge Plumbing.
     <br>
     <b>Step 1</b>: Open the chat with "Plumbing Assistant". You will find the chat bubble on the bottom-right of your screen.<br>
     <b>Step 2</b>: Click the "I want to talk to support" button.<br>
@@ -684,6 +737,9 @@ document.getElementById("userForm").addEventListener("submit", function (event) 
           verify: { projectID: '67de60bcfcf169f7d050d7e8' },
           url: 'https://general-runtime.voiceflow.com',
           versionID: 'production',
+          assistant: {
+                    persistence: 'memory' // Set your preferred persistence option here
+        },
           voice: {
             url: "https://runtime-api.voiceflow.com"
           }
@@ -717,6 +773,9 @@ document.getElementById('AIAssistance').addEventListener('click', () => {
                 verify: { projectID: '67de60bcfcf169f7d050d7e8' },
                 url: 'https://general-runtime.voiceflow.com',
                 versionID: 'production',
+                assistant: {
+                    persistence: 'localStorage' // Set your preferred persistence option here
+                },
                 showInitialMessage: false,
                 showLauncher: false
             }).then(() => {
