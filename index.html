@@ -217,61 +217,66 @@ document.addEventListener("DOMContentLoaded", () => {
   const cookieOverlay = document.getElementById("cookie-overlay");
   const whiteOverlay = document.getElementById("white-overlay");
   const managePreferencesOverlay = document.getElementById("manage-preferences-overlay");
+
   const acceptButton = document.querySelector(".btn.accept");
   const manageButton = document.querySelector(".btn.manage");
   const backButton = document.querySelector(".btn.back");
   const saveButton = document.querySelector(".btn.save");
 
-  // Initially, the manage preferences overlay is hidden
+  // Hide Manage Preferences overlay initially
   managePreferencesOverlay.style.display = "none";
 
-  // Check if the overlay has been shown in this session
+  // Cookie overlay delay (5 seconds)
   if (!sessionStorage.getItem("cookieOverlayShown")) {
-    // Display the cookie overlay after 5 seconds
     setTimeout(() => {
       cookieOverlay.classList.remove("hidden");
       cookieOverlay.classList.add("visible");
-      sessionStorage.setItem("cookieOverlayShown", "true"); // Mark as shown
+      sessionStorage.setItem("cookieOverlayShown", "true");
     }, 5000);
   }
 
-  // Handle the "Accept" button click
+  // ACCEPT button
   acceptButton.addEventListener("click", () => {
-    // Hide the cookie overlay
     cookieOverlay.classList.remove("visible");
     cookieOverlay.style.display = "none";
 
-    // Show the white overlay
     whiteOverlay.style.display = "block";
-
-    // Hide the white overlay after 2 seconds
     setTimeout(() => {
       whiteOverlay.style.display = "none";
     }, 2000);
   });
 
-  // Show the "Manage Preferences" overlay on button click
+  // MANAGE PREFERENCES button
   manageButton.addEventListener("click", () => {
-    managePreferencesOverlay.style.display = "flex"; // Show the preferences overlay
+    // Hide cookie overlay (THIS WAS MISSING)
+    cookieOverlay.classList.remove("visible");
+    cookieOverlay.style.display = "none";
+
+    // Show Manage Preferences overlay
+    managePreferencesOverlay.style.display = "flex";
     managePreferencesOverlay.classList.remove("hidden");
   });
 
-  // Hide the "Manage Preferences" overlay on "Back" button click
+  // BACK button in Preferences
   backButton.addEventListener("click", () => {
-    managePreferencesOverlay.style.display = "none"; // Hide the preferences overlay
+    managePreferencesOverlay.style.display = "none";
     managePreferencesOverlay.classList.add("hidden");
+
+    // Return back to cookie overlay
+    cookieOverlay.style.display = "flex";
+    cookieOverlay.classList.add("visible");
   });
 
-  // Save preferences and hide the "Manage Preferences" overlay on "Save & Exit" button click
+  // SAVE & EXIT button
   saveButton.addEventListener("click", () => {
-    // Hide the cookie overlay
+    // Close everything
     cookieOverlay.classList.remove("visible");
     cookieOverlay.style.display = "none";
-    // Show the white overlay
-    whiteOverlay.style.display = "block";
-    managePreferencesOverlay.style.display = "none"; // Hide the preferences overlay
+
+    managePreferencesOverlay.style.display = "none";
     managePreferencesOverlay.classList.add("hidden");
-    // Hide the white overlay after 2 seconds
+
+    whiteOverlay.style.display = "block";
     setTimeout(() => {
       whiteOverlay.style.display = "none";
     }, 2000);
@@ -451,7 +456,7 @@ function closeOverlay() {
   </div>
 </div>
 
-<div id="timedOverlay">
+<!--<div id="timedOverlay">
   <div class="overlay-content">
     <div>
         <span id="closeOverlay">&times;</span>
@@ -485,80 +490,20 @@ function closeOverlay() {
     // Hook "X" close button
     document.getElementById('closeOverlay').addEventListener('click', closeOverlay);
   });
-</script>
+</script>-->
 
     
 <div id="content">
-<center>
-  <div class="banner" style="display: flex; align-items: center; justify-content: center; background-color: #A52A2A; padding: 20px;">
-    <h2 style="margin: 0; color: #0A2919; font-family: 'HORIZON', sans-serif;">WE</h2>
-
-    <!-- Quick‑Words -->
-    <h2 class="Quick-Words" style="margin: 0 10px; color: #FFDF00; font-family: 'HORIZON', sans-serif; position: relative; overflow: hidden; height: 36px; width: 120px;">
-      <span class="word active">INSTALL</span>
-    </h2>
-
-    <!-- Slow‑Words (now rolling between Taps & Radiators) -->
-    <h2 class="Slow-Words" style="margin: 0 10px; color: #009688; font-family: 'HORIZON', sans-serif; position: relative; overflow: hidden; height: 36px; width: 120px;">
-      <span class="word active">TAPS</span>
-    </h2>
-  </div>
-</center>
-<script>
-  // Quick‑Words setup (3‑word loop)
-  const quickWords = ["INSTALL", "MAINTAIN", "REPAIR"];
-  let qIndex = 0;
-
-  // Slow‑Words setup (2‑word loop)
-  const slowWords = ["TAPS", "RADIATORS"];
-  let sIndex = 0;
-
-  function switchWord(containerClass, wordsArray, currentIndexRef) {
-    const container = document.querySelector(`${containerClass} .word`);
-    const parent = container.parentElement;
-    const nextIndex = (currentIndexRef.value + 1) % wordsArray.length;
-
-    // create new span
-    const newWord = document.createElement("span");
-    newWord.textContent = wordsArray[nextIndex];
-    newWord.classList.add("word", "rolling-in");
-    parent.appendChild(newWord);
-
-    // animate old out
-    setTimeout(() => container.classList.add("rolling-out"), 50);
-
-    // animate new in
-    setTimeout(() => {
-      newWord.classList.remove("rolling-in");
-      newWord.classList.add("active");
-    }, 300);
-
-    // clean up old after animation
-    setTimeout(() => container.remove(), 600);
-
-    currentIndexRef.value = nextIndex;
-  }
-
-  // hold indexes in mutable objects since primitives are immutable
-  const qRef = { value: qIndex };
-  const sRef = { value: sIndex };
-
-  setInterval(() => switchWord(".Quick-Words", quickWords, qRef), 3000);
-  setInterval(() => switchWord(".Slow-Words", slowWords, sRef), 3000);
-</script>
 <div class="HomepageImage">    
   <!-- two layers -->
-  <div class="bg back"  style="background-image: url('grey-marble-bathroom.png');"></div>
+  <div class="bg back"></div>
   <div class="bg front"></div>
     
-    <div style="position: relative; z-index: 3; padding: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;" id="section_1">
+    <div id="section_1">
         <div style="flex: 1; min-width: 300px;">
-            <h3 style="font-size: 30px; color: #00CCB9;">Got a tap that needs fixing urgently?</h3>
-            <h2 style="font-size: 20px; color: #A52A2A;">Our expert plumbers are all highly trained professionals when it comes to any tap problem. We use the best tools as well as the best methods to make sure that we don't damage or ruin your property. Our plumbers will also clean up when they're done, so that we can provide you with a hassle-free experience.
+            <h3 style="font-size: 30px; color: #FFFFFF;">Providing Plumbing Projects Throughout Greater Manchester...</h3>
             <br><br>
-         In other words, you're in safe hands with us!
-            </h2>
-            <br><br>
+            <h3 style="font-size: 30px; color: #A52A2A;" class="desktop-view-only">Proud to provide compliant, warranty-backed and user-friendly projects for our customers.</h3>
             <h2 style="font-size: 33px; color: #00CCB9;">Get in touch:</h2>
             <br>
             <div style="display: flex; gap: 10px;">
@@ -579,6 +524,16 @@ function closeOverlay() {
     </div>
 </div>
 <style>
+  #section_1 {
+      position: relative;
+      z-index: 3;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+  }
+    
   .HomepageImage {
     position: relative;
     overflow: hidden;
@@ -596,50 +551,77 @@ function closeOverlay() {
   .HomepageImage .bg {
     position: absolute;
     top: 0; left: 0;
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center 15%;
     transition: opacity 1s ease-in-out;
   }
   .HomepageImage .bg.back { opacity: 1; z-index: 1; }
   .HomepageImage .bg.front { opacity: 0; z-index: 2; }
-
-@media (max-width: 500px) {
-    .word active, span {
-        font-size: 15px;
-    }
-}
 </style>
 <script>
 (function(){
   const images = [
-    'grey-marble-bathroom.png',
-    'grey-and-white-marble-bathroom.png',
-    'light-black-marble-bathroom.png',
-    'rock-grey-marble-bathroom.png',
-    'white-bathroom.png'
+    "customer_37.JPG",
+    "customer_1.JPG",
+    "customer_40.jpeg",
+    "customer_31.JPG",
+    "customer_41.jpeg"
   ];
-  let idx = 0;
-  const back = document.querySelector('.HomepageImage .bg.back');
-  const front = document.querySelector('.HomepageImage .bg.front');
 
-  // Preload
+  // Custom positions per image
+  const imagePositions = {
+    "customer_37.JPG": "center 70%",
+    "customer_1.JPG": "center 50%",
+    "customer_40.jpeg": "center 30%",
+    "customer_31.JPG": "center 60%",
+    "customer_41.jpeg": "center 40%"
+  };
+
+  // Custom zoom per image
+  const imageSizes = {
+    "customer_37.JPG": "cover", 
+    "customer_1.JPG": "cover", 
+    "light-black-marble-bathroom.png": "cover",
+    "customer_31.JPG": "100%",
+    "white-bathroom.png": "cover"
+  };
+
+  let idx = 0;
+
+  const back  = document.querySelector(".HomepageImage .bg.back");
+  const front = document.querySelector(".HomepageImage .bg.front");
+
+  // Apply correct initial settings to .back layer
+  const firstImage = images[0];
+  back.style.backgroundImage = `url('${firstImage}')`;
+  back.style.backgroundPosition = imagePositions[firstImage] || "center";
+  back.style.backgroundSize = imageSizes[firstImage] || "cover";
+
+  // Preload all images (not lazy load)
   images.forEach(src => new Image().src = src);
 
   setInterval(() => {
     idx = (idx + 1) % images.length;
-    // 1) put next image into front layer
-    front.style.backgroundImage = `url('${images[idx]}')`;
+    const next = images[idx];
 
-    // 2) fade it in
+    // Apply settings to front layer
+    front.style.backgroundImage = `url('${next}')`;
+    front.style.backgroundPosition = imagePositions[next] || "center";
+    front.style.backgroundSize = imageSizes[next] || "cover";
+
+    // Fade front in
     front.style.opacity = 1;
 
-    // 3) after fade, swap roles
+    // After fade, move front → back
     setTimeout(() => {
       back.style.backgroundImage = front.style.backgroundImage;
+      back.style.backgroundPosition = front.style.backgroundPosition;
+      back.style.backgroundSize = front.style.backgroundSize;
+
       front.style.opacity = 0;
-    }, 1000); // match transition duration
+    }, 1000); // match CSS fade
   }, 4000);
 })();
 </script>
@@ -687,18 +669,115 @@ html {
     scroll-behavior: smooth;
 }
 </style>
+<!--<div>
+  <h2 style="padding: 20px;">Accreditations</h2>-->
+
+  <!--<div class="box right-curve" style="--i:0; background-color: blue;">
+    <h3>Watersafe Certification</h3>
+    <p>We are watersafe certified through the Water Industry Approved Plumbers Scheme (WIAPS). This means that we are approved to take on certain plumbing work which must be in accordance with British Standards and Codes. As watersafe-approved contractors, we are required to provide customers with a "Certificate of Compliance" document at the end of the service, which is subject to our <a href="/policy/general#Section_12" style="color: #009688;">General Policy(Section 12)</a>.</p>
+  </div>-->
+  
+  <!--<div class="box left-curve" style="--i:1; background-color: green;">
+    <h3>Kingsbridge Insurance</h3>
+    <p>We are insured by Kingsbridge Insurance who will cover us in terms of public and employee liability. Customer claims must adhere to both Kingsbridge's and Aquaridge Plumbing's terms and conditions, whereby our T&C's for insurance are presented in our <a href="/policy/general#Section_8" style="color: #009688;">General Policy(Section 8)</a>.</p>
+  </div>-->
+  
+  <!--<div class="box right-curve" style="--i:2; background-color: orange;">
+    <h3>NICEIC Certification</h3>
+    <p>We are NICEIC certified through Trustmark(a government-backed quality scheme). This means that we are approved to take on certain electrical work which must be in accordance with British Standards and Codes. As a NICEIC-registered business, we will provide customers with an "Electrical Installation Certificate(EIC)" at the end of the service, which is subject to our <a href="/policy/general#Section_12" style="color: #009688;">General Policy(Section 12)</a>, to act as proof of safe electrical work.</p>
+  </div>-->
+
+  <!--<div class="box left-curve" style="--i:3; background-color: brown;">
+    <h3>VAT Registration</h3>
+    <p>This secion will be edited once the VAT registration number and address has been released. For more information, contact <a href="mailto:support@aquaridgeplumbing.com" style="color: #009688;">support@aquaridgeplumbing.com</a>.</p>
+  </div>-->
+<!--</div>-->
+
+<div>
+    <div style="padding: 10px;">
+        <div id="accreditations" class="Accreditations">
+            <h2 style="color: #00CCB9;">Accredited By...</h2><br>
+            <div class="accreditations-container">
+                
+                <div class="accreditations-card">
+                    <img src="city_guilds_logo.png" alt="City_And_Plumbing Logo" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+                    <h3><a href="https://www.cityandguilds.com/" style="color: #00CCB9;">City&Guilds</a></h3>
+                </div>
+
+                <div class="accreditations-card">
+                    <img src="Blueflame.png" alt="Blueflame Logo" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+                    <h3><a href="https://www.blueflamecertification.com/" style="color: #00CCB9;">BlueFlame (Certification)</a></h3>
+                </div>
+
+            </div>
+        </div>
+    <p>Trademarks belong to the respected holders. All rights reserved.</p>
+    </div>
+</div>
+    
 <div style="padding: 30px; text-align: center;">
     <span style="color: #0A2919; font-family: 'GP-SB', sans-serif; font-size: 36px; margin: 0; flex-grow: 1;"><span style="color: #00CCB9;">Who Are We</span><span>?</span></span>
     <h3>We are a rochdale-based plumbing company, serving all of Greater Manchester. We provide customers with affordable plumbing services, without sacrificing quality.<br><br>Our plumbers are all qualified and fully trained to provide the services we offer. We present our customers with high-level workmanship and absolute professionalism, so that our customers can rely on us to fix every problem at hand.</h3>
     <button onclick="/pricing" class="glow-button">Services we offer...</button>
 </div>
-<div style="padding: 30px;">
+<div class="diagonal-section">
+    <span style="color: #E5FFFD; font-family: 'GP-SB', sans-serif; font-size: 36px; margin: 0; flex-grow: 1;"><span style="color: #00CCB9;">Why Choose Us</span><span>?</span></span>
+<div class="warranty-container">
+    <div class="warranty-showcase">
+        <img src="Certificate_Of_Compliance.png" alt="Image Of Client Bathroom Sink" onerror="this.onerror=null; this.src='Error_Image.png';">
+    </div>
+    <div class="warranty-showcase">
+        <img src="1_Year_Warranty.png" alt="Image Of Client Bathroom Sink" onerror="this.onerror=null; this.src='Error_Image.png';">
+    </div>
+    <div class="warranty-showcase">
+        <img src="Materials_Warranty.png" alt="Image Of Client Bathroom Sink" onerror="this.onerror=null; this.src='Error_Image.png';">
+    </div>
+</div>
+    <h3 style="color: #E5FFFD;">All of our projects come with a "Certificate Of Compliance" which can be used to prove that our work is compliant with British Standards and other relevant regulations. If our work is not compliant, or the regulations have changed, this certificate can be used to claim a free remedial or update service. For more informtion, <a href="https://www.aquaridgeplumbing/warranty#Compliance" style="color: #00CCB9;">click here</a>.
+    <br><br>We also provide a 1-year warranty for all of our projects. That means, if there's a leak or defect due to the workmanship of out team, you can claim a free service to rectify the issue(T&C's apply). For more information, <a href="https://www.aquaridgeplumbing/warranty" style="color: #00CCB9;">click here</a>.
+    <br><br>Some manufacturers provide warranties for their products or materials. We honour each warranty for every item in a project, if the manufacturer provides it. The terms and conditions of the manufacturers warranty will apply and this will be abided by our team. Information regarding the manufacturers warranty will be shared with our customers, when applicable.</h3>
+</div>
+<style>
+.diagonal-section {
+    padding: 30px;
+    text-align: center;
+    background: linear-gradient(135deg, #E5FFFD 50%, #0A2919 50%);
+    position: relative;
+}
+
+.diagonal-section * {
+    color: #E5FFFD;
+    mix-blend-mode: difference;
+}
+
+.warranty-showcase {
+    flex: 0 0 calc(33.33% - 13.33px); /* 3 cards per row with spacing */
+    text-align: center;
+}
+
+.warranty-showcase img {
+    width: 30vw;
+    height: 30vh;
+    object-fit: contain;
+}
+
+.warranty-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 10px;
+    width: 100%;
+    max-width: 100vw;
+}
+</style>
+<div style="padding: 30px; background-color: #A52A2A;">
   <div id="Testimonials">
     <h2 style="color: #00CCB9;">What's our customers saying?</h2><br>
     <div class="review-scroll-container">
 <!--Add More Here-->
       <div class="review-card">
-        <img src="Client_Testimonial_8.JPG" alt="Image Of Client Bathroom Sink" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+        <img src="Client_Testimonial_8.JPG" alt="Image Of Client Bathroom Sink" onerror="this.onerror=null; this.src='Error_Image.png';">
         <div class="stars">
             <span>★★★★★</span> <!-- Five stars -->
         </div>
@@ -707,7 +786,7 @@ html {
       </div>
 
       <div class="review-card">
-        <img src="Client_Testimonial_7.JPG" alt="Image Of Client walk-in Shower" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+        <img src="Client_Testimonial_7.JPG" alt="Image Of Client walk-in Shower" onerror="this.onerror=null; this.src='Error_Image.png';">
         <div class="stars">
             <span class="stars" style="color: transparent; -webkit-text-stroke: 1px #054708;">★★★★★</span> <!-- Zero stars -->
         </div>
@@ -717,7 +796,7 @@ html {
       </div>
         
       <div class="review-card">
-        <img src="Client_Testimonial_6.JPG" alt="Image Of Client Bath Taps" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+        <img src="Client_Testimonial_6.JPG" alt="Image Of Client Bath Taps" onerror="this.onerror=null; this.src='Error_Image.png';">
         <div class="stars">
             <span>★</span><span class="stars" style="color: transparent; -webkit-text-stroke: 1px #054708;">★★★★</span> <!-- One stars -->
         </div>
@@ -726,7 +805,7 @@ html {
       </div>
         
       <div class="review-card">
-        <img src="Client_Testimonial_5.JPG" alt="Image Of Client Outdoor Taps" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+        <img src="Client_Testimonial_5.JPG" alt="Image Of Client Outdoor Taps" onerror="this.onerror=null; this.src='Error_Image.png';">
         <div class="stars">
             <span>★★★★★</span> <!-- Five stars -->
         </div>
@@ -735,7 +814,7 @@ html {
       </div>
         
       <div class="review-card">
-        <img src="Client_Testimonial_4.JPG" alt="Image Of Client Bathroom Sink" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+        <img src="Client_Testimonial_4.JPG" alt="Image Of Client Bathroom Sink" onerror="this.onerror=null; this.src='Error_Image.png';">
         <div class="stars">
             <span>★★★★★</span> <!-- Five stars -->
         </div>
@@ -744,7 +823,7 @@ html {
       </div>
 
       <div class="review-card">
-        <img src="Client_Testimonial_3.JPG" alt="Image Of Client Bathroom Sink" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+        <img src="Client_Testimonial_3.JPG" alt="Image Of Client Bathroom Sink" onerror="this.onerror=null; this.src='Error_Image.png';">
         <div class="stars">
             <span>★★★★★</span> <!-- Five stars -->
         </div>
@@ -753,7 +832,7 @@ html {
      </div>
         
       <div class="review-card">
-        <img src="Client_Testimonial_2.JPG" alt="Image Of Client Kitchen Sink" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+        <img src="Client_Testimonial_2.JPG" alt="Image Of Client Kitchen Sink" onerror="this.onerror=null; this.src='Error_Image.png';">
         <div class="stars">
             <span>★★★★</span><span class="half-star" style="color: #A52A2A;">★</span> <!-- Four.Five stars -->
         </div>
@@ -762,7 +841,7 @@ html {
      </div>
         
      <div class="review-card">
-        <img src="Client_Testimonial_1.JPG" alt="Image Of Client Wash Room Facility" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+        <img src="Client_Testimonial_1.JPG" alt="Image Of Client Wash Room Facility" onerror="this.onerror=null; this.src='Error_Image.png';">
         <div class="stars">
             <span>★★★★</span><span class="stars" style="color: transparent; -webkit-text-stroke: 1px #054708;">★</span> <!-- Four stars -->
         </div>
@@ -857,46 +936,46 @@ html {
 <br>
 <div style="padding: 10px;">
   <div id="associations" class="Associates">
-    <h2 style="color: #00CCB9;">In Association With</h2><br>
+    <h2 style="color: #00CCB9;">Find Us on...</h2><br>
     <div class="associates-scroll-container">
         <!--Add More Here-->
         <div class="associates-card">
-            <img src="Google.png" alt="Google Logo" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+            <img src="Google.png" alt="Google Logo" onerror="this.onerror=null; this.src='Error_Image.png';">
             <h3 style="color: #00CCB9;">Google</h3>
         </div>
 
         <div class="associates-card">
-            <img src="Yell.png" alt="MyJobQuote Logo" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+            <img src="Yell.png" alt="MyJobQuote Logo" onerror="this.onerror=null; this.src='Error_Image.png';">
             <h3 style="color: #00CCB9;">Yell</h3>
         </div>
         
         <div class="associates-card">
-            <img src="MyJobQuote.png" alt="MyJobQuote Logo" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+            <img src="MyJobQuote.png" alt="MyJobQuote Logo" onerror="this.onerror=null; this.src='Error_Image.png';">
             <h3 style="color: #00CCB9;">MyJobQuote</h3>
         </div>
 
         <div class="associates-card">
-            <img src="MyBuilder.png" alt="MyBuilder Logo" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+            <img src="MyBuilder.png" alt="MyBuilder Logo" onerror="this.onerror=null; this.src='Error_Image.png';">
             <h3 style="color: #00CCB9;">MyBuilder</h3>
         </div>
 
         <div class="associates-card">
-            <img src="Handily.png" alt="Handily Logo" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+            <img src="Handily.png" alt="Handily Logo" onerror="this.onerror=null; this.src='Error_Image.png';">
             <h3 style="color: #00CCB9;">Handily</h3>
         </div>
 
         <div class="associates-card">
-            <img src="TheTradeCore.png" alt="TheTradeCore Logo" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+            <img src="TheTradeCore.png" alt="TheTradeCore Logo" onerror="this.onerror=null; this.src='Error_Image.png';">
             <h3 style="color: #00CCB9;">TheTradeCore</h3>
         </div>
 
         <div class="associates-card">
-            <img src="NeedHelp.png" alt="NeedHelp Logo" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+            <img src="NeedHelp.png" alt="NeedHelp Logo" onerror="this.onerror=null; this.src='Error_Image.png';">
             <h3 style="color: #00CCB9;">NeedHelp</h3>
         </div>
 
         <div class="associates-card">
-            <img src="TaskRabbit.png" alt="TaskRabbit Logo" onerror="this.onerror=null; this.src='Error_Image.png';" class="review-img">
+            <img src="TaskRabbit.png" alt="TaskRabbit Logo" onerror="this.onerror=null; this.src='Error_Image.png';">
             <h3 style="color: #00CCB9;">TaskRabbit</h3>
         </div>
     </div>
@@ -930,9 +1009,9 @@ html {
 <br>
 <div style="padding: 30px; text-align: center;">
     <span style="color: #0A2919; font-family: 'GP-SB', sans-serif; font-size: 36px; margin: 0; flex-grow: 1;"><span style="color: #00CCB9;">AFFORDABLE PRICES!</span></span>
-    <h3>We provide installation, maintenance and repairment services for taps. Most of our services cost the same price as the tools you'd need to get the job done!
+    <h3>Our prices reflect an average of the current construction market for Greater Manchester. This means that our prices will be fair and competitive for the quality and support you'll receive.
     <br><br>
-    From fixing dripping taps at a service price starting at £15, to new tap installations starting at £20, we've got a service for every budget. Instead of potentially breaking your new tap, why not let our professional plumbers take on the job instead? That way, you'll have a faultless tap installed for your house while also saving yourself from all the hassle!
+    Our plumbers take pride in their work and we strive to provide you with a high level of workmanship and professionalism. We work hard to make our projects user-friendly and safe to use, so that our customers can enjoy the benefits of their projects without any hassle. If something does happen, we try our best to provide excellent customer aftercare; whether that be additional advise in case something may be wrong or a free service(with the warranty)for remedial works.
     <br><br>
     So, what are you waiting for? <a href="#section_1" id="scrollToSection" style="color: #A52A2A;">Leave us your email,</a> or <a href="#section_1" id="scrollToSection" style="color: #A52A2A;">drop us a message</a> and we'll get back to you "ASAP"!</h3>
 </div>
@@ -1026,7 +1105,7 @@ document.querySelectorAll('.faq-question').forEach(button => {
                     try {
                         window.voiceflow.chat.proactive.push({ 
                             type: 'text', 
-                            payload: { message: "Free Estimate Quotes Available" }
+                            payload: { message: "Additional Assistance Available" }
                         });
                     } catch (error) {
                         console.error("Error displaying proactive message:", error);
@@ -1045,8 +1124,9 @@ document.querySelectorAll('.faq-question').forEach(button => {
     <div style="padding: 40px;">
         <h2 style="color: #0A2919;">Policy</h2>
         <h3><a href="/policy/privacy/" style="color: #E5FFFD; font-size: 20px;">Privacy Policy</a></h3>
-        <h3><a href="/policy/general/#Money-Back_Guarantee" style="color: #E5FFFD; font-size: 20px;">Money-Back Guarantee</a></h3>
+        <h3><a href="/policy/general#Section_7" style="color: #E5FFFD; font-size: 20px;">Money-Back Guarantee</a></h3>
         <h3><a href="/policy/general/" style="color: #E5FFFD; font-size: 20px;">General Policy</a></h3>
+        <h3><a href="/warranty" style="color: #E5FFFD; font-size: 20px;">Warranty</a></h3>
     </div>
     
     <div style="padding: 40px;">
@@ -1054,7 +1134,7 @@ document.querySelectorAll('.faq-question').forEach(button => {
         <h3><a href="/contact/" style="color: #E5FFFD; font-size: 20px;">Contact</a></h3>
         <h3><a id="AIAssistance" style="color: #E5FFFD; font-size: 20px; cursor: pointer;"><u>AI Assistance</u></a></h3>
     </div>
-</div> 
+</div>
 <script>
 document.getElementById('AIAssistance').addEventListener('click', () => {
     (function(d, t) {
