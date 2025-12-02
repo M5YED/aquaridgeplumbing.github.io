@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="Aquaridge Plumbing is a plumbing business based in the town of Rochdale. All our expert plumbers have extensive experience in the services we offer.">
-<title>Error - Aquaridge Plumbing</title>
-<link rel="sitemap" type="application/xml" href="https://www.aquaridgeplumbing.com/sitemap.xml" />
+<title>Aquaridge Plumbing | Prices and Services</title>
+<link rel="sitemap" type="application/xml" href="https://www.aquaridgeplumbing.com/pricing/sitemap.xml" />
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -25,10 +25,10 @@
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 <meta name="msapplication-TileColor" content="#009688"> 
-<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-<meta name="msapplication-TileImage" content="/ms-icon-150x150.png">
-<meta name="msapplication-TileImage" content="/ms-icon-310x310.png">
-<meta name="msapplication-TileImage" content="/ms-icon-70x70.png">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png"><!--CREATE LATER-->
+<meta name="msapplication-TileImage" content="/ms-icon-150x150.png"><!--CREATE LATER-->
+<meta name="msapplication-TileImage" content="/ms-icon-310x310.png"><!--CREATE LATER-->
+<meta name="msapplication-TileImage" content="/ms-icon-70x70.png"><!--CREATE LATER-->
 <meta property="og:image" content="/AquaridgePlumbing_Open_Graph_Image.png" /><!--CREATE LATER-->
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -60,27 +60,22 @@
         <a href="https://www.aquaridgeplumbing.com/pricing/">Pricing</a>
         <a href="https://www.aquaridgeplumbing.com/contact/">Contact</a>
         <a href="https://www.aquaridgeplumbing.com/contact/speed_dial/">Speed Dial</a>
+        <br>
+        <h3 style="font-size: 20px; color: #E5FFFD;">Other</h3>
+        <a href="https://www.aquaridgeplumbing.com/pricing/water_filters/">Water Filters</a>
     </div>
 </nav>
 <!-- Company Name -->
 <h1>Aquaridge Plumbing</h1>
 <!-- Company Logo -->
-<a href="javascript:location.reload();">
+<a href="https://www.aquaridgeplumbing.com/">
     <img src="AquaridgePlumbingLogo2_Transparent.png" alt="Aquaridge Plumbing Logo" onerror="this.onerror=null; this.src='Error_Image.png';" class="logo">
 </a>
         </div>
     </header>
 </div>
+<!-- JavaScript -->
 <script>
-// Smooth scrolling script
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
-}
-
-// Header Menu Overlay
     function toggleMenu() {
         const menu = document.getElementById('menu-overlay');
         if (menu.classList.contains('active')) {
@@ -97,17 +92,23 @@ function scrollToSection(sectionId) {
             }, 10); // Delay for smooth transition
         }
     }
-</script>
-<!-- This sends the UserID to the Database. DO NOT EDIT!-->
-<script>
+
+    // Smooth scrolling script
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    
 // List of metals names
 const metals = [
-  "Temporary-page", "Temporary Page", "Temporary_Page"
+  "Pricing", "Prices", "Prices&Services", "Pricing&Servicing", "Price Page", "Price Webpage"
 ];
 
-const AIRTABLE_API_KEY = "patV7GJaIPf1nmdjZ.bce781c5558e7d579e14541c546efb728a1a5099c417f9cfa9e7d9180de11c49";
+const AIRTABLE_API_KEY = "patma2GleJcx1ihQB.19176128fba7a33a7a701f42ed06c284cbce979bf9dfe339027e52b1b1df8d7f";
 const AIRTABLE_BASE_ID = "appRVFcrr9bgxraGU";
-const AIRTABLE_TABLE_NAME = "Website%20Error%20Page";
+const AIRTABLE_TABLE_NAME = "Website%20Traffic";
 
 // Store the recordId in a variable to use it later for deletion
 let recordId = null;
@@ -158,6 +159,30 @@ async function sendToAirtable(userId) {
   }
 }
 
+// Function to delete the record from Airtable
+async function deleteFromAirtable() {
+  const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}/${recordId}`;
+  
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Authorization": `Bearer ${AIRTABLE_API_KEY}`,
+      }
+    });
+
+    if (response.ok) {
+      console.log("Record deleted successfully");
+      // Optionally remove recordId from localStorage
+      localStorage.removeItem("recordId");
+    } else {
+      console.error("Error deleting record:", response.status, await response.text());
+    }
+  } catch (error) {
+    console.error("Failed to delete record:", error);
+  }
+}
+
 // Main logic to execute on page load
 window.onload = async () => {
   const userId = generateUserId();
@@ -174,21 +199,430 @@ window.onload = async () => {
     console.error("Failed to send user ID to Airtable:", error);
   }
 };
+
+// Listen for the console log message to trigger the DELETE request
+const originalLog = console.log;
+console.log = function(message, ...args) {
+  originalLog(message, ...args);
+
+  if (message === "The user opted out of optional cookies") {
+    // Delete the record from Airtable if the message matches
+    if (recordId) {
+      deleteFromAirtable();
+    }
+  }
+};
+
+// Cookie Notice
+document.addEventListener("DOMContentLoaded", () => {
+  const cookieOverlay = document.getElementById("cookie-overlay");
+  const whiteOverlay = document.getElementById("white-overlay");
+  const managePreferencesOverlay = document.getElementById("manage-preferences-overlay");
+  const acceptButton = document.querySelector(".btn.accept");
+  const manageButton = document.querySelector(".btn.manage");
+  const backButton = document.querySelector(".btn.back");
+  const saveButton = document.querySelector(".btn.save");
+
+  // Initially, the manage preferences overlay is hidden
+  managePreferencesOverlay.style.display = "none";
+
+  // Check if the overlay has been shown in this session
+  if (!sessionStorage.getItem("cookieOverlayShown")) {
+    // Display the cookie overlay after 5 seconds
+    setTimeout(() => {
+      cookieOverlay.classList.remove("hidden");
+      cookieOverlay.classList.add("visible");
+      sessionStorage.setItem("cookieOverlayShown", "true"); // Mark as shown
+    }, 5000);
+  }
+
+  // Handle the "Accept" button click
+  acceptButton.addEventListener("click", () => {
+    // Hide the cookie overlay
+    cookieOverlay.classList.remove("visible");
+    cookieOverlay.style.display = "none";
+
+    // Show the white overlay
+    whiteOverlay.style.display = "block";
+
+    // Hide the white overlay after 2 seconds
+    setTimeout(() => {
+      whiteOverlay.style.display = "none";
+    }, 2000);
+  });
+
+  // Show the "Manage Preferences" overlay on button click
+  manageButton.addEventListener("click", () => {
+    managePreferencesOverlay.style.display = "flex"; // Show the preferences overlay
+    managePreferencesOverlay.classList.remove("hidden");
+  });
+
+  // Hide the "Manage Preferences" overlay on "Back" button click
+  backButton.addEventListener("click", () => {
+    managePreferencesOverlay.style.display = "none"; // Hide the preferences overlay
+    managePreferencesOverlay.classList.add("hidden");
+  });
+
+  // Save preferences and hide the "Manage Preferences" overlay on "Save & Exit" button click
+  saveButton.addEventListener("click", () => {
+    // Hide the cookie overlay
+    cookieOverlay.classList.remove("visible");
+    cookieOverlay.style.display = "none";
+    // Show the white overlay
+    whiteOverlay.style.display = "block";
+    managePreferencesOverlay.style.display = "none"; // Hide the preferences overlay
+    managePreferencesOverlay.classList.add("hidden");
+    // Hide the white overlay after 2 seconds
+    setTimeout(() => {
+      whiteOverlay.style.display = "none";
+    }, 2000);
+  });
+});
+    
+document.addEventListener("DOMContentLoaded", () => {
+  const analyticsToggle = document.getElementById("analytics-toggle");
+  const adsToggle = document.getElementById("ads-toggle");
+
+  // Listen for changes on both toggles
+  analyticsToggle.addEventListener("change", handleToggleChange);
+  adsToggle.addEventListener("change", handleToggleChange);
+
+  function handleToggleChange() {
+    // Log the message when any toggle is changed
+    console.log("The user opted out of optional cookies");
+  }
+});
 </script>
-<!-- This sends the UserID to the Database. DO NOT EDIT!-->
-<body><br><br><br><br><br><center><h1 style="color: #0A2919;">Sorry, this page is under construction. We apologise for any inconvenience caused.<br><br>Reason: New Warranty and Certifications</h1><br><button onclick="window.location.href='https://www.aquaridgeplumbing.com/'" class="glow-button">Return To Homepage...</button><br>
-<script type="text/javascript">
-  (function(d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function() {
-        window.voiceflow.chat.load({
-          verify: { projectID: '67d136d3e1220f97e80ade17' },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production'
-        });
+<script src="script.js" defer></script>
+
+
+<div id="cookie-overlay" class="hidden">
+  <div class="cookie-content">
+    <h2 style="color: #009688;">Cookie Consent</h2>
+    <div class="cookie-text"style="background: #FFFFFF;">
+      <p>
+        We use cookies to personalise content and ads, to provide social media features, 
+        and to analyse our traffic. We might also share information about your use of our site 
+        with our social media, advertising, and analytics partners. For details, please review our 
+        <a href="/policy/privacy/">Privacy Policy</a>.
+      </p>
+      <br>
+      <p>
+        Cookies help us improve your experience. You can manage your preferences or 
+        accept all cookies by selecting the respective options below.
+      </p>
+    </div>
+    <div class="cookie-buttons">
+      <button class="btn manage">Manage Preferences</button>
+      <button class="btn accept">Accept</button>
+    </div>
+  </div>
+</div>
+
+<!-- Accept Button Response -->
+<div id="white-overlay">
+  <p>Changes successfully saved!</p>
+</div>
+    
+<!-- Manage Preference Button Response -->
+<div id="manage-preferences-overlay" class="hidden">
+  <div class="manage-content">
+    <h2>Manage Preferences</h2>
+    <h3 style="color: #000000;">Which settings would you like to change?</h3>
+    <div class="preferences-section">
+      <label class="toggle-wrapper">
+        <span>Enable Analytics Cookies</span>
+        <input type="checkbox" class="toggle-input" id="analytics-toggle" checked>
+        <span class="toggle-slider"></span>
+      </label>
+      <label class="toggle-wrapper">
+        <span>Enable Personalised Ads</span>
+        <input type="checkbox" class="toggle-input" id="ads-toggle" checked>
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+    <div class="manage-buttons">
+      <button class="btn back">Back</button>
+      <button class="btn save">Save & Exit</button>
+    </div>
+  </div>
+</div>
+<body>
+<div class="pricing-wrapper">
+
+  <!-- Section 1: Warranties -->
+  <section class="pricing-section from-left" id="warranty">
+    <div class="card">
+      <h2>Warranty Coverage</h2>
+      <p>
+        All projects come with our 1-year workmanship warranty and any manufacturer warranties for materials. Each project also includes a Certificate Of Compliance which can be used to rectify any noncompliant works if a building services inspector requires changes to a project. Compliance certificates may also be used for home insurance or warranty claims. Your plumbing project is protected, reliable, and built to last.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 2: Call-Out Fee -->
+  <section class="pricing-section from-right" id="callout">
+    <div class="card">
+      <h2>Call-Out Fee</h2>
+      <p>
+        Our call-out pricing is simple and transparent:  
+        <strong>£10 + £2 per mile</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 3: Labour Fee -->
+  <section class="pricing-section from-left" id="labour">
+    <div class="card">
+      <h2>Labour Fee</h2>
+      <p>
+        Labour costs are created on a case-by-case basis and are charged at a flat rate for each project, with no hidden extras or changes during the project. We prioritise efficiency and transparency.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 4: Materials Fee -->
+  <section class="pricing-section from-right" id="materials">
+    <div class="card">
+      <h2>Materials</h2>
+      <p>
+        Materials are charged at costs according to suppliers with available stock. We try to minimise the materials cost by shipping items, from the same supplier, in 1 order, when possible. Most general materials are bought through large retailers including Screwfix, Toolstation, Victoria Plumbing, Travis Perkins, Plumbase, Wolseley and others, to guarantee high-quality products and accessible support.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 5: Voiceflow Agent -->
+  <section class="pricing-section final-section" id="assistant">
+    <div class="card assistant-card fade-in">
+      <h2>Need Help?</h2>
+      <p>Our Plumbing Assistant is equipped with many features and is continually adapting to handle your queries. For human-support, contact 
+      <a href="mailto:support@aquaridgeplumbing.com" style="color: #A52A2A;">support@aquaridgeplumbing.com</a>.
+      </p>
+
+      <div id="Need-Help?" style="width: auto; height: 80vh;">
+        <!-- The chat widget will load here -->
+      </div>
+        <script>
+        // === Load Voiceflow only when the section is visible ===
+        
+        // Observe the final section
+        const vfSection = document.getElementById("assistant");
+        let vfLoaded = false;
+        
+        const vfObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !vfLoaded) {
+              vfLoaded = true; // prevent multiple loads
+              loadVoiceflowWidget();
+            }
+          });
+        }, { threshold: 0.4 });
+        
+        vfObserver.observe(vfSection);
+        
+        // === Function to load Voiceflow ===
+        function loadVoiceflowWidget() {
+          const v = document.createElement("script");
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+          v.type = "text/javascript";
+        
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: {
+                projectID: "67de60bcfcf169f7d050d7e8"
+              },
+              url: "https://general-runtime.voiceflow.com",
+              versionID: "production",
+        
+              assistant: {
+                persistence: 'sessionStorage'
+              },
+        
+              render: {
+                mode: 'embedded',
+                target: document.getElementById('Need-Help?'),
+              },
+        
+              autostart: true
+            });
+          };
+        
+          document.body.appendChild(v);
+        }
+        </script>
+    </div>
+  </section>
+
+</div>
+<style>
+body {
+  background: #0A0F0D;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+/* Wrapper spacing */
+.pricing-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0;
+  gap: 120px;
+}
+
+/* Section (invisible until animation triggers) */
+.pricing-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+/* Card */
+.card {
+  width: 70%;
+  background: #111816;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0 20px #00CCB9;
+  border: 1px solid #009688;
+  transition: all 0.5s ease;
+}
+
+.card h2 {
+    color: #009688;
+}
+
+/* Alternating slide-ins */
+.from-left {
+  transform: translateX(-120px);
+}
+
+.from-right {
+  transform: translateX(120px);
+}
+
+/* Active animation class */
+.section-visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+/* Assistant Fade-In */
+.assistant-card {
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+  transform: translateY(30px);
+}
+
+.assistant-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .card {
+    width: 90%;
+    padding: 30px;
+  }
+}
+</style>
+<script>
+// Animate sections into view
+const sections = document.querySelectorAll(".pricing-section");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("section-visible");
+
+      // Voiceflow fade-in
+      if (entry.target.id === "assistant") {
+        document.querySelector(".assistant-card")
+                .classList.add("assistant-visible");
       }
-      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-  })(document, 'script');
+    } else {
+      // Remove class when user scrolls upward
+      entry.target.classList.remove("section-visible");
+    }
+  });
+}, { threshold: 0.25 });
+
+sections.forEach(section => observer.observe(section));
 </script>
-</center></body>
+        <script type="text/javascript">
+          (function(d, t) {
+              var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+              v.onload = function() {
+                window.voiceflow.chat.load({
+                  verify: { projectID: '67de60bcfcf169f7d050d7e8' },
+                  url: 'https://general-runtime.voiceflow.com',
+                  versionID: 'production',
+                  voice: {
+                    url: "https://runtime-api.voiceflow.com"
+                  }
+                });
+              }
+              v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+          })(document, 'script');
+        </script>
+        <footer style="background-color: #009688; color: #E5FFFD;">
+        <div style="display: flex; justify-content: center;">
+            <div style="padding: 40px;">
+                <h2 style="color: #0A2919;">Policy</h2>
+                <h3><a href="/policy/privacy/" style="color: #E5FFFD; font-size: 20px;">Privacy Policy</a></h3>
+                <h3><a href="/policy/general#Section_7" style="color: #E5FFFD; font-size: 20px;">Money-Back Guarantee</a></h3>
+                <h3><a href="/policy/general/" style="color: #E5FFFD; font-size: 20px;">General Policy</a></h3>
+            </div>
+            
+            <div style="padding: 40px;">
+                <h2 style="color: #0A2919;">Support</h2>
+                <h3><a href="/contact/" style="color: #E5FFFD; font-size: 20px;">Contact</a></h3>
+                <h3><a id="AIAssistance" style="color: #E5FFFD; font-size: 20px; cursor: pointer;"><u>AI Assistance</u></a></h3>
+            </div>
+        </div> 
+        <script>
+        document.getElementById('AIAssistance').addEventListener('click', () => {
+            (function(d, t) {
+              var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                v.onload = function() {
+                    // Initialize Voiceflow chat
+                    window.voiceflow.chat.load({
+                        verify: { projectID: '67de60bcfcf169f7d050d7e8' },
+                        url: 'https://general-runtime.voiceflow.com',
+                        versionID: 'production',
+                        showInitialMessage: false,
+                        showLauncher: false
+                    }).then(() => {
+                        console.log('Voiceflow chat loaded successfully.');
+        
+                        window.voiceflow.chat.open();
+                        console.log('Chat opened.');
+        
+                        const removeLauncher = () => {
+                            const launcher = document.querySelector('.vf-chat-launcher');
+                            if (launcher) {
+                                launcher.remove();
+                                console.log('Launcher removed.');
+                            }
+                        };
+        
+                        removeLauncher();
+                        setInterval(removeLauncher, 1000);
+                    }).catch((error) => {
+                        console.error('Error loading Voiceflow chat:', error);
+                    });
+                };
+                v.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
+                v.type = 'module';
+                s.parentNode.insertBefore(v, s);
+            })(document, 'script');
+        });
+        </script>
+        </footer>
+</body>
 </html>
