@@ -42,6 +42,12 @@
 <meta name="twitter:description" content="Got a leaking pipe? Or a dripping tap? We'll sort it out, just get in touch at www.aquaridgeplumbing.com">
 <meta name="twitter:image" content="/x-icon.png">
 <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+<style>
+    .General-Policy h3 {
+        font-weight: normal;
+        font-size: 20px;
+    }
+</style>
 </head>
 
 
@@ -57,15 +63,18 @@
     <div id="menu-overlay" class="menu-overlay">
         <h3 style="font-size: 20px; color: #E5FFFD;">Main</h3>
         <a href="https://www.aquaridgeplumbing.com/">Home</a>
-        <a href="https://www.aquaridgeplumbing.com/pricing/">Service</a>
-        <a href="https://www.aquaridgeplumbing.com/contact/">Pricing</a>
+        <a href="https://www.aquaridgeplumbing.com/pricing/">Pricing</a>
+        <a href="https://www.aquaridgeplumbing.com/contact/">Contact</a>
         <a href="https://www.aquaridgeplumbing.com/contact/speed_dial/">Speed Dial</a>
+        <br>
+        <h3 style="font-size: 20px; color: #E5FFFD;">Other</h3>
+        <a href="https://www.aquaridgeplumbing.com/pricing/water_filters/">Water Filters</a>
     </div>
-</nav> 
+</nav>
 <!-- Company Name -->
 <h1>Aquaridge Plumbing</h1>
 <!-- Company Logo -->
-<a href="javascript:location.reload();">
+<a href="https://www.aquaridgeplumbing.com/">
     <img src="AquaridgePlumbingLogo2_Transparent.png" alt="Aquaridge Plumbing Logo" onerror="this.onerror=null; this.src='Error_Image.png';" class="logo">
 </a>
         </div>
@@ -73,6 +82,24 @@
 </div>
 <!-- JavaScript -->
 <script>
+// Smooth scrolling script
+function toggleMenu() {
+    const menu = document.getElementById('menu-overlay');
+    if (menu.classList.contains('active')) {
+        menu.style.opacity = '0'; // Fade out
+        setTimeout(() => {
+            menu.style.display = 'none'; // Hide after fade-out
+            menu.classList.remove('active'); // Remove active class
+        }, 300); // Match transition duration
+    } else {
+        menu.style.display = 'flex'; // Show before fading in
+        setTimeout(() => {
+            menu.classList.add('active'); // Add active class for fade-in
+            menu.style.opacity = '1'; // Trigger fade-in
+        }, 10); // Delay for smooth transition
+    }
+}
+
 // Smooth scrolling script
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
@@ -170,162 +197,129 @@ async function submitemail(email) {
 <script src="script.js" defer></script>
 <div style="padding: 20px;">
 <center><h2>General Policy</h2></center>
-<center><h3>
-These general policies cover the terms and conditions that are legally binding for Aquaridge Plumbing's audience, where “audience” refers to Aquaridge Plumbing's employees and clients. Every employee and client must confirm that they have read and agreed to these terms before the commencement of any project conducted by Aquaridge Plumbing. A confirmation may be in the form of a formal handwritten signature or an informal agreement, such as a text message with the utterance "Yes". However, these terms are only legally binding if the confirmation is explicitly related to these terms, known as the "General Policy". Confirmation of other terms does not render the policies below valid or legally binding.
-</h3></center>
 </div>
-<div style="padding: 20px;">
+<div class="General-Policy" style="padding: 20px;">
 
-  <span style="font-size: 25px; font-weight: bold;">Section 1</span>
-  <span style="font-size: 20px;">: Project Initialisation (1.1)
+<div id="Section_1">
+    <h2>Section 1: What Are General Policies?</h2>
+    <h3>The general policies, outlined in this document, cover basic terms and conditions that we've set out, which govern how we conduct our services and how customers interact with our business. Whenever we reference the abbreviation "APE", we mean Aquaridge Plumbing Employee; someone who we employ or is part of our company or team. Likewise, whenever we reference the abbreviation "APC", we mean Aquaridge Plumbing Customer; someone who we've worked with or are working with, or intended to work with(but a service was not carried out).</h3>
     <br><br>
-    Aquaridge Plumbing's employees, hereinafter referred to as “APE”, will be in contact with the client, hereinafter referred to as “APC”, to understand the project’s requirements, scope, and objectives. This initial contact includes:
-    <ol>
-      <li><strong>Initial Consultation:</strong> APE will conduct an assessment either via phone, message, or on-site visit, as deemed necessary.</li>
-      <li><strong>Requirement Gathering:</strong> Detailed documentation of the client's needs, property conditions, and any special considerations.(This policy is for larger jobs, hereby referred to as "FLJ". FLJ policy's are adhered to within projects requiring more than 3 days, excluding projects that were allocated any additional days on top of their initial project timeline.)</li>
-      <li><strong>Preliminary Quotation:</strong> A rough estimate and discussion of potential solutions will be provided. This is subject to further review upon detailed inspection.</li>
-    </ol>
-    All details discussed during this phase will be documented and confirmed by both APE and APC prior to project commencement.
-  </span>
-
-  <br><br>
-
-  <span style="font-size: 25px; font-weight: bold;">Section 2(FLJ)</span>
-  <span style="font-size: 20px;">: Scope of Work & Service Deliverables (2.1)
-    <br><br>
-    Aquaridge Plumbing will define the Scope of Work (SOW) for every project based on the initial consultation. The SOW will include:
-    <ol>
-      <li><strong>Detailed Description:</strong> A comprehensive explanation of the work to be undertaken, including any limitations or exclusions.</li>
-      <li><strong>Materials Specification:</strong> Specifications of the materials to be used, including brands and models where applicable.</li>
-      <li><strong>Timeline:</strong> An estimated project timeline with start and completion dates, subject to change based on unforeseen circumstances.</li>
-      <li><strong>Client Responsibilities:</strong> Any requirements or preparations needed from the APC to ensure a smooth project execution.</li>
-    </ol>
-    Both APE and APC must review, amend (if necessary), and formally approve the SOW before work commences.
-  </span>
-
-  <br><br>
-
-  <span style="font-size: 25px; font-weight: bold;">Section 3</span> 
-  <span style="font-size: 20px;">: Payment Terms and Billing (3.1)
-    <br><br>
-    All financial transactions will be conducted in accordance with the following guidelines:
-    <ol>
-    <li><strong>Material, Fittings, and Component Payments:</strong> APC shall pay for all fittings, materials, and components used or intended for use in the project <strong>prior</strong> to their installation. Detailed invoices listing these items will be provided for client approval and payment before proceeding with installation.</li> <li><strong>Service Charge Payment:</strong> The service charge for labor and related services will be invoiced and is due upon the project's completion and successful final inspection by APC.</li> <li><strong>Retention of Materials:</strong> In the event that APC elects not to pay the service charge as stipulated, Aquaridge Plumbing reserves the right to retain all materials, fittings, and components used or allocated for the project as a form of compensation.</li> </ol> All payment methods accepted by Aquaridge Plumbing will be detailed in the client contract. 
-  </span>
-
-  <br><br>
-
-  <span style="font-size: 25px; font-weight: bold;">Section 4</span>
-  <span style="font-size: 20px;">: Safety, Compliance & Environmental Standards (4.1)
-    <br><br>
-    Aquaridge Plumbing is committed to upholding the highest standards of safety and compliance, which include:
-    <ol>
-      <li><strong>Regulatory Adherence:</strong> All projects will comply with local, state, and federal plumbing codes, as well as environmental regulations.</li>
-      <li><strong>Employee Safety:</strong> APE will be provided with proper training, personal protective equipment (PPE), and safety protocols to minimize risk during project execution.</li>
-      <li><strong>Site Safety:</strong> APC must ensure that the work site is accessible and free of hazards that could impede safe operations. Any risks identified will be addressed prior to work starting.</li>
-      <li><strong>Environmental Considerations:</strong> Efforts will be made to use eco-friendly materials and practices where possible. Disposal of waste and hazardous materials will follow approved environmental guidelines.</li>
-    </ol>
-  </span>
-
-  <br><br>
-
-  <span style="font-size: 25px; font-weight: bold;">Section 5</span>
-  <span style="font-size: 20px;">: Warranties, Guarantees & Post-Project Support (5.1)
-    <br><br>
-    Aquaridge Plumbing guarantees the quality of its workmanship and materials under the following conditions:
-    <ol>
-      <li><strong>Workmanship Warranty:</strong> A standard warranty period of 7 calendar days is provided, during which any defects due to workmanship will be remedied at no additional cost.</li>
-      <li><strong>Material Warranty:</strong> Where applicable, warranties provided by material manufacturers will be honored. Documentation of such warranties will be supplied to APC.</li>
-      <li id="Money-Back_Guarantee"><strong>Money-Back Guarantee:</strong> In cases where APE has damaged a component crucial to the project, APE will be liable to give a refund to APC or to replace the component with another replica or similar model. In cases where APE has damaged a component external to the project, where external refers to components that are not part of the project but are part of APC's property or assets, APE will issue a full refund, or will not collect payment, limited to the amount equal to the service charge. Guarantees or Warranties do not include damage to components that APE had planned to Scrap-For-Parts(SFP) or components that were intended to be removed from the property as waste.</li>
-      <li><strong>Post-Project Support:</strong> APC is entitled to a consultation period of 5 working days following project completion for addressing any minor adjustments or questions regarding the installation or repair work.</li>
-      <li><strong>Exclusions:</strong> Warranties and guarantees do not cover damages resulting from misuse, natural disasters, unauthorized modifications, or client defection, where client defection refers to defects caused by the client before, during or after the project completion.</li>
-    </ol>
-  </span>
-
-  <br><br>
-
-  <span style="font-size: 25px; font-weight: bold;">Section 6</span>
-  <span style="font-size: 20px;">: Liability, Insurance & Indemnification (6.1)
-    <br><br>
-    To safeguard both APE and APC, the following terms apply:
-    <ol>
-      <li><strong>Liability Limitations:</strong> Aquaridge Plumbing will take all reasonable precautions during project execution. However, APC acknowledges that certain unforeseen events may occur, for which APE’s liability is limited to the amount specified in the contract.</li>
-      <li><strong>Insurance Coverage:</strong> Aquaridge Plumbing maintains a public liability insurance. Proof of such insurance will be provided upon request.</li>
-      <li><strong>Indemnification:</strong> APC agrees to indemnify and hold harmless Aquaridge Plumbing against any claims arising from the misuse of services or failure to adhere to safety guidelines.</li>
-    </ol>
-  </span>
-
-  <br><br>
-
-  <span style="font-size: 25px; font-weight: bold;">Section 7</span>
-  <span style="font-size: 20px;">: Confidentiality and Data Privacy (7.1)
-    <br><br>
-    Both parties acknowledge that sensitive information may be exchanged during the course of a project. Therefore:
-    <ol>
-      <li><strong>Confidential Information:</strong> All proprietary, financial, and personal information shared between APE and APC is considered confidential.</li>
-      <li><strong>Data Protection:</strong> Aquaridge Plumbing will take reasonable measures to protect any data received. APC is responsible for informing APE of any restrictions on the use or dissemination of their information.</li>
-      <li><strong>Non-Disclosure:</strong> Unauthorized disclosure of confidential information is strictly prohibited and may result in legal action.</li>
-    </ol>
-  </span>
-
-  <br><br>
-
-  <span style="font-size: 25px; font-weight: bold;">Section 8</span>
-  <span style="font-size: 20px;">: Dispute Resolution (8.1)
-    <br><br>
-    In the event of a disagreement or dispute:
-    <ol>
-      <li><strong>Negotiation:</strong> Both parties agree to first attempt to resolve the issue through direct negotiation and discussion.</li>
-      <li><strong>Mediation/Arbitration:</strong> If negotiation fails, the dispute may be submitted to a mutually agreed-upon mediator or arbitrator. The decision rendered shall be binding on both parties.</li>
-      <li><strong>Legal Recourse:</strong> As a last resort, disputes may be taken to court, subject to the jurisdiction specified in the contract.</li>
-    </ol>
-  </span>
-
-  <br><br>
-
-  <span style="font-size: 25px; font-weight: bold;">Section 9</span>
-  <span style="font-size: 20px;">: Amendments and Termination (9.1)
-    <br><br>
-    This policy may be amended under the following conditions:
-    <ol>
-      <li><strong>Policy Amendments:</strong> Any changes to these policies made by APE must be announced or communicated to present and previous APC's. Modifications to these policies must be dated at the bottom of the document and do not affect projects that were completed or started before the modification date.</li>
-      <li><strong>Termination by Client:</strong> APC may terminate the project if significant deviations from the agreed SOW occur, subject to payment for work already completed. In cases where the project was started, but not completed, the APC will pay 50% of the service charge, as well as payments for any unpaid materials that were intended for use in the project.</li>
-      <li><strong>Termination by Company:</strong> Aquaridge Plumbing reserves the right to suspend or terminate a project if APC fails to comply with the terms herein or if continued work poses a safety hazard.</li>
-      <li><strong>Notice Period:</strong> A notice period of 3 working days is required for any termination made by the client, and a  notice period of 1 working day is required for any termination made by the company, except in cases of breach or emergency.</li>
-    </ol>
-  </span>
-
-  <br><br>
-
-  <span style="font-size: 25px; font-weight: bold;">Section 10</span>
-  <span style="font-size: 20px;">: Emergency Procedures and Unforeseen Circumstances (10.1)
-    <br><br>
-    In cases where emergencies or unexpected events affect the project:
-    <ol>
-      <li><strong>Immediate Notification:</strong> APE shall immediately inform APC of any incident that could impact project safety, timeline, or quality.</li>
-      <li><strong>Contingency Plans:</strong> Pre-defined contingency measures will be implemented to manage emergencies, including resource re-allocation and schedule adjustments.</li>
-      <li><strong>Force Majeure:</strong> Aquaridge Plumbing is not liable for delays or non-performance resulting from circumstances beyond its control, such as natural disasters, labor strikes, or government actions.</li>
-    </ol>
-  </span>
-
-  <br><br>
-
-  <span style="font-size: 25px; font-weight: bold;">Section 11</span>
-  <span style="font-size: 20px;">: Acknowledgement and Agreement (11.1)
-    <br><br>
-    By confirming acceptance of these policies, both APE and APC acknowledge that they have read, understood, and agreed to the terms set forth in this General Policy document. This acknowledgement is required before any further engagement in project activities.
-    <ol>
-      <li><strong>Record Keeping:</strong> Both parties shall retain a copy of the signed or electronically confirmed policy for future reference.</li>
-      <li><strong>Policy Review:</strong> Aquaridge Plumbing reserves the right to review and update these policies at any time. APC and APE will be notified of any policy changes as mentioned in Section 9.1(Policy Amendments).</li>
-    </ol>
-  </span>
+    <span style="background-color: #00CCB9; color: #FFFFFF; font-size: 20px;">
+      <strong>Note:</strong> Some non-customers, also referred to as "3rd party members", also have access to information and systems that we provide our customers with access to. 3rd party members include people who have signed up to gain access to information which we have allowed to be shared to the public. We still protect private information, which is unique to each customer, so 3rd party members won't have access to private or confidential information. We've discussed what private and confidential information is in our <a href="https:www.aquaridgeplumbing.com/policy/privacy" style="color: #FFFFFF;">privacy policy</a>.
+    </span>
 </div>
-<div style="padding: 5px;">
-<center><p style="font-size: 20px;">End Of General Policy</p></center>
+
+<br><br>
+
+<div id="Section_2">
+    <h2>Section 2: Our Very First Step</h2>
+    <h3>Before we onboard any APC, we first gather some information. This includes the APC's name, email/phone number and address(town and postcode). We treat this information as described in our <a href="https:www.aquaridgeplumbing.com/policy/privacy" style="color: #00CCB9;">privacy policy</a>. We need this information in order to continue our communication with our customer. Sometimes, we don't immediately collect all of the data that we need at one time, so that our customers do not feel pressured to share their data. We may collect some data at a later time, or even during the service visit, if needed.</h3>
 </div>
+
+<br><br>
+
+<div id="Section_3">
+    <h2>Section 3: The Construction Of The Service</h2>
+    <h3>We build the service that we will be offering to our customer by communicating with them to see what type of service they need. If we offer the service that they need(i.e. a bathroom tap change), we ask for an image of the item or surrounding of what the service will be based around. This is to make sure that we build the correct service that the customer needs, and to understand what conditions our APE's will be working under. If any arrangements need to be made, we make sure to communicate with the customer to ensure that the needs of both parties(referring to our APE and APC) are met. Once all agreements in regards to the service are made, we then offer an estimate or quote. This is where the customer can decide to accept or decline the service. We do not negotiate the cost of the service. If a customer would not like to proceed with the quote for the project, they can decline our offer and we will terminate the project. 
+    <br><br>
+    If we don't offer a service that meets the customer's demand, we make sure to clearly outline the service(s) that we don't offer. The customer can then decide to ask us for another service that they need, or to take their current demands to another company. We sometimes still treat customers as our APC, even if they did not receive a service from us. This can mean that they will still receive benefits that are usually reserved for APC's(i.e. phone calls or call-backs).
+    <br><br>For the safety of our APE's and the efficiency of the project, we create method statements and risk assessments(if deemed necessary) for each project, or use previous template method statements for recurring project types. This ensures that our APE's have a safe system of work while also providing our APC's with a smoother project flow.</h3>
+</div>
+
+<br><br>
+
+<div id="Section_4">
+    <h2>Section 4: Pre-Payments And Milestone Payments</h2>
+    <h3>Our customers pay for the materials and fittings needed for the service. We provide a breakdown of payments that will be collected at different stages of the service. The breakdown appears on the invoice that we send to the customer, however, we also inform the customer about payments that need to be made at certain points throughout the service. Some projects may be deemed as too small for an invoice(ie. when the project does not have a materials cost), so the payment terms will be set before the project commences. Pre-payments(taken before a service visit or consultation) include the material price and call-out fee. If we decide to include milestone payments, which are mainly used in larger projects/services, the milestone payments include the labour fee which has been broken down into smaller interval payments. Projects without milestone payments will simply have a pre-payment and post-payment(which is paid at the end of the service).
+    <br><br>
+    We take payments in the form of cash, bank transfer or card. Our APE's are equipped with their own physical card reader and mobile banking card reader. The card readers can accept a wide variety of card payments, including: Apple Pay, Visa, Mastercard, Credit/Debit cards, contactless + PIN&Card and other payment methods. Our business banking is managed by "REVOLUT".  
+    <br><br>
+    If a customer decides to not pay a pre-payment, then the service will be terminated, unless otherwise stated by the APE. If a customer pays the pre-payment, and an APE has purchased the materials for the service, the pre-payment will be non-refundable. However, if the APE has not yet purchased the materials for the service, a full or partial refund may be given, depending on how much of the APC's pre-payment amount remains in possession of the company. If some of the materials have been purchased, but not all of the materials needed for the service, then the remaining amount will be refunded to the APC, however, the amount used to purchase the already-purchased materials will be non-refundable. APC's will be given the option to leave the materials in the custody of the company, which will be reserved for the customer for a maximum of 60 days, or to keep the materials that were purchased with the non-refundable portion of the pre-payment. If a customer chooses to keep the materials that were purchased, then the customer will need to pay for the packaging and shipping of the materials. Aquaridge Plumbing reserves the right to claim any materials that have been in custody for over 60 days. APE's are not permitted to return materials to merchants as this will interfere with the relationship between the company and merchants(some exclusions may apply for emergency situations).
+    <br><br>
+    If a customer has already paid the pre-payment and the service visit has commenced, then the pre-payment will become non-refundable. If the customer refuses to pay any milestone payments which were agreed to beforehand, then the project will be terminated and any materials that were brought to the customer's property will be left in the custody of the customer. Any materials that were not brought to the customer's property on the service visit will be treated as mentioned in the latter part of the previous paragraph.</h3>
+</div>
+
+<br><br>
+
+<div id="Section_5">
+    <h2>Section 5: Service Visit/Consultation</h2>
+    <h3>We usually provide APC's a service consultation, if needed, over text or phone call. However, for more advanced services, we may need to provide the customer with an in-person consultation. This consultation visit will still incur the call-out fee as well as any additional fees if agreed to beforehand. After the consultation visit, if the customer would like to continue with the service, the service visit will be booked. The consultation visit may take place before the initiation of section 4(Pre-Payments And Milestone Payments).
+    <br><br>
+    During the service visit, the customer may request to see any proof of ID or Qualifications(ie. the APE's CSCS card), if needed. If the customer decides to continue with the service, the work will be carried out according to Building Regulations or any other legal frameworks.</h3>
+</div>
+
+<br><br>
+
+<div id="Section_6">
+    <h2>Section 6: Service Conclusion</h2>
+    <h3>To end the service, we provide the customer with any additional information that may need to be shared. If any warranties, guarantees or certification of work needs to be honoured, we do so before we leave the property<b>(in accordance with section 12)</b>. If no more information needs to be shared, we collect the last milestone payment or labour fee before(or sometimes after) we leave the property. At the end of the service, we offer the customer to leave a review(positive or negative) which is displayed on our website homepage. We do not hide any reviews, left by customers, as we believe that this could negatively impact our future customers.</h3>
+</div>
+
+<br><br>
+
+<div id="Section_7">
+    <h2>Section 7: Rectifications and Money-Back Guarantee</h2>
+    <h3>We understand that many things can go wrong during the service. Some things may be within our control, whereas others may not. Where possible, if an event has happened where something has gone wrong due to an APE's actions, rectifications will be made to resolve the issue. In emergency situations where a rectification cannot be made, the labour cost for the service will be refunded to the customer. If an event occurs in which an APE was not at fault(i.e. a natural occurrence occurred due to low-quality materials), no refund will be given and an additional fee for rectifications may be charged. Where possible, APE's will report to the customer about any foreseeable negative events that may happen(i.e. due to low-quality materials used in the service or the effects of the surroundings in which the materials will reside).</h3>
+    <br><br>
+    <span style="background-color: #A52A2A; color: #FFFFFF; font-size: 20px;">
+      <strong>Note:</strong> The money-back guarantee can only include the labour cost. Call-out fees and material fees cannot be refunded. For any serious damages that have occurred, Aquaridge Plumbing's insurance will cover any costs that will need to be repaid(terms and conditions set by the insurance company may apply).
+    </span>
+</div>
+
+<br><br>
+
+<div id="Section_8">
+    <h2>Section 8: Insurance Claims</h2>
+    <h3>Aquaridge Plumbing is insured by Kingsbridge Insurance. Any insurance claims to be made against Aquaridge Plumbing will be dealt between our support team, lawyers(if needed) and Kingsbridge Insurance. To make an insurance claim, contact <a href="mailto:support@aquaridgeplumbing.com" style="color: #A52A2A;">support@aquaridgeplumbing.com</a>. Our insurance policy covers public liability as employee liability. Insurance claims will be used as a last resort and Aquaridge Plumbing will try to cover any costs when possible. 
+    </h3>
+</div>
+
+<br><br>
+
+<div id="Section_9">
+    <h2>Section 9: Dispute Resolution</h2>
+    <h3>In situations where an APE and APC have had a dispute and a resolution cannot be agreed to, the matter will first be taken to the Aquaridge Plumbing support team or a mutually agreed-upon mediator or arbitrator. If no agreements can be made, the matter may be dealt with in court.</h3>
+</div>
+
+<br><br>
+
+<div id="Section_10">
+    <h2>Section 10: Emergency Evacuation</h2>
+    <h3>In cases where emergencies or unexpected events affect the service, an APE will inform the customer of any incident that could impact project safety, timeline, or quality. Any new plans in regards to the service continuation and timeline will be discussed with the customer. [Force Majeure:]Aquaridge Plumbing is not liable for delays or non-performance resulting from circumstances beyond its control, such as natural disasters, labor strikes, or government actions.</h3>
+    <br>
+</div>
+
+<br><br>
+
+<div id="Section_11">
+    <h2>Section 11: Security Measures</h2>
+    <h3>Aquaridge Plumbing follows certain protocols and security measures. One security measure includes the "Reservation Of Calls", whereby phone calls are reserved for previous customers, 3rd-party members and known contacts. This protocol is in place to prevent certain events, including, but not limited to: voice-cloning, spam/scam calls and AI-training.</h3>
+    <br>
+</div>
+
+<br><br>
+
+<div id="Section_12">
+    <h2>Section 12: Post-Service Certificates & Warranty</h2>
+    <h3>As a registered contractor in various schemes, Aquaridge Plumbing may be required to provide customers with a post-service certification document(ie. certification of completion/compliance). These certifications will only be provided after all payments(including final milestone/labour payments) have been collected.
+    <br><br>As a complimentary service, Aquaridge Plumbing provides a 1-year warranty for all projects. The warranty is limited to cover only what was included in the project(ie. radiator valves for a radiator project), not any external components that may have been affected by the project(ie. the boiler's heat exchanger). More information as well as terms and conditions regarding the 1-year warranty or other documents can be found at <a href="https:www.aquaridgeplumbing.com/warranty" style="color: #00CCB9;">www.aquaridgeplumbing.com/warranty</a>.
+    <br><br>In situations where the customer refuses to make any final payments, the certification will not be provided or will be revoked/invalid. Aquaridge Plumbing will claim no responsibility for work without a certification and all future consequences will be the responsibility of the customer.
+    <br><br>In situations where the customer is unable to make the final payment at the time of completion and manages to make the payment at a later time(providing the project is still active/has not been terminated), an APE will revisit the site to provide the certification document at a later date, subject to the customer repaying the call-out fee and any additional charges(if applicable).
+    <br><br>In situations where the customer had lost or damaged the certification provided to them, a new certification may be issued. An assessment will need to be conducted before any certifications are re-issued, to make sure that the work had been completed by Aquaridge Plumbing. Customers will be charged the call-out fee and "assessment and certification-renewal fee" in order to claim a new certificate. The current "assessment and certification-renewal fee" is £40 for all works offered by Aquaridge Plumbing. The current call-out charge can be found at <a href="https:www.aquaridgeplumbing.com/pricing" style="color: #00CCB9;">www.aquaridgeplumbing.com/pricing</a>.</h3>
+    <br>
+</div>
+
+<div id="Section_13">
+    <h2>Section 13: Project Termination, Completion And Reopening</h2>
+    <h3>Projects are terminated using our artificial intelligence or automation softwares. A project is usually terminated within 30 days from when it was first opened, however, an APE can modify the termination date if needed. To prolong a termination date, the customer will need to provide a valid argument as to why the project should remain active for over 30 days. If no valid argument is given, the project will continue to be terminated on the 30th day from the date it was first opened. Terminated projects cannot be reopened; a new project will have to be created. Quotations or estimates that were given before the project was terminated, are subject to modifications. You may not receive the same quote for the project.
+    <br><br>Projects that are marked as complete will be closed and an email will be sent to collect a review from the customer. Completed projects may be reopened by an APE if needed. An email will be sent to the customer if their project has been reopened.</h3>
+    <br>
+</div>
+</div>
+<div style="padding: 5px;"><center><p style="font-size: 20px;">End Of General Policy</p></center></div>
 <div style="padding: 10px:">
 <center><h3>
-Changes made to these policies will be communicated via Email. All APC's(previous and present) will be notified, as well as 3rd party viewers. By submitting your email below, you agree to become a 3rd party viewer and agree to be notified of any changes to this document when modifications are made. To unsubscribe, contact the Aquaridge Plumbing support team and an APE will remove your email address from the Policy Update mailing list.</h3></center>
+Changes made to these policies will be communicated via Email. All APC's(previous and present) will be notified, as well as 3rd party viewers(exluding APC's that have not provided their email address, or have removed their data from our database). By submitting your email below, you agree to become a 3rd party member and agree to be notified of any changes to this document when modifications are made. To unsubscribe, contact the Aquaridge Plumbing support team and an APE will remove your email address from the Policy Update mailing list.</h3></center>
 <br><br>
 <div style="display: flex; padding: 10px; margin: 0; gap: 10px;">
     <input type="email" id="email-input" placeholder="Enter your email" required />
@@ -334,8 +328,32 @@ Changes made to these policies will be communicated via Email. All APC's(previou
     <p id="error-message" class="error-message" style="color: #000000;">Please enter a valid email address.</p>
 </div>
 <br><br>
-<p style="text-align: right; padding: 5px;">Last Modified: 06:05PM Thursday 10th April 2025</p>
+<p style="text-align: right; padding: 5px;">Last Modified: 08:45PM Friday 5th December 2025</p>
 </div>
+<div style="padding: 40px;">
+    <a onclick="DownloadThisPolicy()" style="font-size: 30px; font-family: TNR; color: #000000; cursor: pointer;">- <u>Download This Policy(PDF)</u></a>
+    <br>
+    <a onclick="DownloadPreviousPolicy()" style="font-size: 30px; font-family: TNR; color: #000000; cursor: pointer;">- <u>Download Previous Policy(PDF)</u></a>
+</div>
+<script>
+  function DownloadThisPolicy() {
+    const link = document.createElement('a');
+    link.href = 'Aquaridge_Plumbing_New_Policy.pdf';
+    link.download = 'Aquaridge_Plumbing_New_Policy.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  function DownloadPreviousPolicy() {
+    const link = document.createElement('a');
+    link.href = 'Aquaridge_Plumbing_Old_Policy.pdf';
+    link.download = 'Aquaridge_Plumbing_Old_Policy.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+</script>
 <script type="text/javascript">
   (function(d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
@@ -356,14 +374,15 @@ Changes made to these policies will be communicated via Email. All APC's(previou
 <div style="display: flex; justify-content: center;">
     <div style="padding: 40px;">
         <h2 style="color: #0A2919;">Policy</h2>
-        <h3><a href="/policy/privacy/" style="color: #E5FFFD; font-size: 20px;">Privacy Policy</a></h3>
-        <h3><a href="/policy/general/#Money-Back_Guarantee" style="color: #E5FFFD; font-size: 20px;">Money-Back Guarantee</a></h3><!-- FILL IN LATER-->
-        <h3><a href="/policy/general/" style="color: #E5FFFD; font-size: 20px;">General Policy</a></h3>
+        <h3><a href="/policy/privacy" style="color: #E5FFFD; font-size: 20px;">Privacy Policy</a></h3>
+        <h3><a href="/policy/general#Section_7" style="color: #E5FFFD; font-size: 20px;">Money-Back Guarantee</a></h3>
+        <h3><a href="/policy/general" style="color: #E5FFFD; font-size: 20px;">General Policy</a></h3>
+        <h3><a href="/policy/general#Section_12" style="color: #E5FFFD; font-size: 20px;">Warranty</a></h3>
     </div>
     
     <div style="padding: 40px;">
         <h2 style="color: #0A2919;">Support</h2>
-        <h3><a href="/contact/" style="color: #E5FFFD; font-size: 20px;">Contact</a></h3>
+        <h3><a href="/contact" style="color: #E5FFFD; font-size: 20px;">Contact</a></h3>
         <h3><a id="AIAssistance" style="color: #E5FFFD; font-size: 20px; cursor: pointer;"><u>AI Assistance</u></a></h3>
     </div>
 </div>
