@@ -348,8 +348,9 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 </div>
 <body>
+<br><br>
+<h2>mikaeel.s(MAIN)</h2>
 <div id="mikaeel.s" style="width: 60vw; height: 80vh; border: 1px solid #ccc; border-radius: 30px;">
-    mikaeel.s(MAIN)
   <!-- The chat widget will load here -->
 </div>
 <script>
@@ -380,8 +381,8 @@ document.addEventListener("DOMContentLoaded", () => {
   })(document, 'script');
 </script>
 
+<h2>19MSYED(Policy Update)</h2>
 <div id="19msyed" style="width: 60vw; height: 80vh; border: 1px solid #ccc; border-radius: 30px;">
-    19MSYED(Policy Update)
   <!-- The chat widget will load here -->
 </div>
 <script>
@@ -412,9 +413,9 @@ document.addEventListener("DOMContentLoaded", () => {
   })(document, 'script');
 </script>
 
+<h2>m1k4eel5y3d(ADVANCED)</h2>
 <div id="m1k4eel5y3d" style="width: 60vw; height: 80vh; border: 1px solid #ccc; border-radius: 30px;">
-    m1k4eel5y3d(ADVANCED)
-  <!-- The chat widget will load here -->
+    <!-- The chat widget will load here -->
 </div>
 <script>
   // Wait for the Voiceflow library to load before initializing the chat
@@ -434,6 +435,38 @@ document.addEventListener("DOMContentLoaded", () => {
         render: {
           mode: 'embedded', // Embed mode
           target: document.getElementById('m1k4eel5y3d'), // Target element
+        },
+        autostart: false // Automatically start the chat widget
+      });
+    };
+    v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; // Voiceflow widget script
+    v.type = "text/javascript";
+    s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+
+<h2>Steelforge(ADVANCED)</h2>
+<div id="Steelforge" style="width: 60vw; height: 80vh; border: 1px solid #ccc; border-radius: 30px;">
+    <!-- The chat widget will load here -->
+</div>
+<script>
+  // Wait for the Voiceflow library to load before initializing the chat
+  (function(d, t) {
+    var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+    v.onload = function() {
+      // Initialize the Voiceflow chat widget
+      window.voiceflow.chat.load({
+        verify: {
+          projectID: "6952b9f0395e91d1e1497086" // Replace with your Voiceflow project ID
+        },
+        url: "https://general-runtime.voiceflow.com",
+        versionID: "production",
+        assistant: {
+          persistence: 'sessionStorage' // Set your preferred persistence option here
+        },
+        render: {
+          mode: 'embedded', // Embed mode
+          target: document.getElementById('Steelforge'), // Target element
         },
         autostart: false // Automatically start the chat widget
       });
