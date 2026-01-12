@@ -482,6 +482,7 @@ document.addEventListener("DOMContentLoaded", () => {
   display: flex;
   flex-direction: column;
   gap: 150px;
+  overflow-x: hidden;
 }
 
 /* Portrait-style framed museum panels */
@@ -554,6 +555,7 @@ document.addEventListener("DOMContentLoaded", () => {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease;
+  will-change: transform, opacity;
 }
 
 .from-left {
@@ -571,10 +573,21 @@ document.addEventListener("DOMContentLoaded", () => {
 @media (max-width: 800px) {
   .museum-card {
     width: 90%;
-    padding: 40px 25px;
+    padding: 20px 15px;
+    box-sizing: border-box;
   }
+
   .museum-card h2 {
-    font-size: 26px;
+    font-size: 22px;
+  }
+
+  .from-left,
+  .from-right {
+    transform: translateY(40px);
+  }
+
+  .museum-wall {
+    padding-top: 20px;
   }
 }
 </style>
@@ -586,18 +599,12 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("section-visible");
-
-      // Voiceflow fade-in
-      if (entry.target.id === "assistant") {
-        document.querySelector(".assistant-card")
-                .classList.add("assistant-visible");
-      }
-    } else {
-      // Remove class when user scrolls upward
-      entry.target.classList.remove("section-visible");
+      observer.unobserve(entry.target); // 🔒 lock it in
     }
   });
-}, { threshold: 0.25 });
+}, {
+  threshold: 0.1
+});
 
 sections.forEach(section => observer.observe(section));
 </script>
