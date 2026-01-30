@@ -304,7 +304,7 @@
         display: flex;
         justify-content: space-between;
         gap: 40px; /* spacing between the two columns */
-        flex-wrap: wrap; /* optional: ensures responsiveness */
+        flex-wrap: wrap;
         align-items: flex-start;
     }
 
@@ -313,7 +313,7 @@
         flex-direction: column;
         min-width: 200px;
         justify-content: flex-start;
-        align-items: flex-start; /* Add this */
+        align-items: flex-start;
     }
 
     .links:hover {
@@ -336,6 +336,158 @@
         font-size: 25px;
         margin: 0;
         flex-grow: 1;
+    }
+
+    .products {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .product-wrapper {
+        position: relative;
+        width: min(100%, 900px);
+        margin: 0 auto;
+    }
+    .product-container {
+        display: none;
+        flex-wrap: wrap;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0,0,0,.15);
+        overflow: hidden;
+    }
+    .product-container.aq-is-active {
+        display: flex;
+        position: relative;
+        width: 100%;
+    }
+    .product-image {
+        flex: 1 1 300px;
+        background: #eee;
+    }
+    .product-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .product-details {
+        flex: 2 1 400px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .product-text h2 {
+        margin: 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th,td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background: #f2f2f2;
+    }
+    .price-container {
+        display: flex;
+        gap: 15px;
+    }
+    .price-box {
+        flex: 1;
+        background: #eaf7ef;
+        padding: 15px;
+        text-align: center;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.1em;
+        border: 1px solid #1E7548;
+        color: #1E7548;
+    }
+    .button-container {
+        display: flex;
+        gap: 15px;
+    }
+    .button-container button {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color .3s ease;
+    }
+    .btn-company {
+        background: #1E7548;
+        color: #fff;
+    }
+    .btn-company:hover {
+        background: #155a37;
+    }
+    .btn-self {
+        background: #A52A2A;
+        color: #fff;
+    }
+    .btn-self:hover {
+        background: #7d2020;
+    }
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        background: rgba(0,0,0,.5);
+        color: #fff;
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+    }
+    .arrow:hover {
+        background: rgba(0,0,0,.75);
+    }
+    .arrow-left {
+        left: -50px;
+    }
+    .arrow-right {
+        right: -50px;
+    }
+    
+    /* Special Layout */
+    .special-layout {
+        flex-direction: column;
+    }
+    .special-layout img{
+        max-height: 30vh;
+    }
+    .special-layout .product-text {
+        padding: 20px;
+    }
+    .special-layout .bottom-split {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+    }
+    .special-layout .bottom-left {
+        flex: 1;
+    }
+    .special-layout .bottom-right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    #High_Quality,#Most_Affordable,#Top_Rated,#AI_Generation,#Disclaimers {
+        padding: 30px;
     }
 
     .NewService {
@@ -417,6 +569,46 @@
         text-align: center;
         color: #000000;
         padding: 10px;
+    }
+
+    .box {
+        color: white;
+        padding: 10px;
+        opacity: 0;
+        width: 70vw;
+        animation-duration: 10s;
+        animation-fill-mode: forwards;
+        animation-delay: calc(var(--i) * 0.5s); /* delay increases per box */
+    }
+    
+    .right-curve {
+        border-radius: 0 20px 20px 0;
+        margin-left: 0;
+        margin-right: auto;
+        transform: translateX(-50px);
+        animation-name: fadeInRight;
+    }
+    
+    .left-curve {
+        border-radius: 20px 0 0 20px;
+        margin-right: 0;
+        margin-left: auto;
+        transform: translateX(50px);
+        animation-name: fadeInLeft;
+    }
+    
+    @keyframes fadeInRight {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes fadeInLeft {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
 
     .stars {
@@ -1137,6 +1329,8 @@
         overflow-y: auto;
         scroll-snap-type: y mandatory;
         max-height: 180vh; /* 3 x 60vh */
+        padding-bottom: 50px;
+        gap: 50px;
     }
 
     .associates-scroll-container {
@@ -1152,7 +1346,8 @@
         flex: 0 0 60vh;
         width: 100%;
         scroll-snap-align: start;
-        padding-bottom: 150px;
+        padding-bottom: 10px;
+        max-height: 100%;
     }
 
     .associates-card {
@@ -1174,6 +1369,30 @@
 
     .pricing_image_mobile {
         display: flex;
+    }
+
+    .product-container.aq-is-active {
+        flex-direction: column;
+    }
+
+    .special-layout .bottom-split {
+        flex-direction: column;
+    }
+    
+    #High_Quality,#Most_Affordable,#Top_Rated,#AI_Generation {
+        padding: 10px;
+    }
+
+    #Disclaimers {
+        padding: 15px;
+    }
+
+    .arrow-left {
+        left: -10px;
+    }
+
+    .arrow-right {
+        right: -10px;
     }
 }
         
@@ -1239,6 +1458,10 @@
     .second-menu-button {
         padding: 5px 10px;
     }
+
+    #High_Quality,#Most_Affordable,#Top_Rated,#AI_Generation,#Disclaimers {
+        padding: 10px;
+  }
 }
 
 @media (max-width: 300px) {
